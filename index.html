@@ -4,240 +4,205 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dr. Drink — турбо-дрожжи для дистилляции</title>
-<meta name="description" content="Официальный сайт бренда Dr. Drink: турбо-дрожжи для дистилляции. Линейка из 9 позиций, оптовые поставки магазинам.">
+<meta name="description" content="Официальный сайт турбо-дрожжей Dr. Drink: девять формул под фруктовую, зерновую и ромовую брагу, чистый спирт и объёмы до 100 литров. Поставки магазинам и оптовым компаниям.">
+<link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Podkova:wght@600;700;800&family=Oswald:wght@500;600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Golos+Text:wght@400;500;600&display=swap" id="font-link">
 <link rel="stylesheet" href="css/site.css">
+<script src="js/fonts.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
 
-<!-- шапка: плавающая капсула (реф Rostivo), прайс всегда под рукой (приём Dr.Syslov) -->
+<!-- шапка: сплошная полоса во всю ширину (вместо плавающей капсулы), медальон-логотип свисает печатью -->
 <header class="hd">
-  <div class="hd-cap">
-    <a class="hd-logo" href="#top" aria-label="Dr. Drink — на главную">
-      <img src="img/medallion.webp" alt="" width="48" height="48">
-      <span>Dr.&nbsp;Drink</span>
-    </a>
+  <div class="c hd-in">
+    <a class="hd-logo" href="#top" aria-label="Dr. Drink — на главную"><img src="img/logo.webp" alt="Dr. Drink — For distillation" width="88" height="88"></a>
     <nav class="hd-nav" aria-label="Разделы">
       <a href="#lineup">Продукция</a>
-      <a href="#compare">Сравнить</a>
-      <a href="#howto">Как запустить</a>
-      <a href="#opt">Оптовикам</a>
+      <a href="#benefits">Преимущества</a>
       <a href="#about">О бренде</a>
+      <a href="#certificate">Сертификат</a>
       <a href="#faq">Вопросы</a>
     </nav>
-    <a class="btn btn-ink" href="#request"><span class="btn-roll" data-t="Запросить прайс">Запросить прайс</span></a>
+    <a class="btn btn-gold" href="#contact">Связаться</a>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- первый экран: тёмная «этикетка», внизу вся линейка в цветах пачек (вариант B) -->
-  <section class="hero pnl pnl-label" id="top">
+  <!-- первый экран: фон пачки Rum с её узором (клиент 18.10), справа логотип вместо бейджа, внизу вся линейка -->
+  <section class="hero pat pat-rum" id="top">
     <div class="c hero-in">
-      <div class="hero-text">
-        <span class="sticker st-gold" style="--rot:-6deg">Официальный сайт бренда</span>
-        <h1 class="h1">Турбо-дрожжи<br>для&nbsp;дистилляции</h1>
-        <p class="hero-sub">Девять позиций под разный напиток и объём браги. Поставляем магазинам и&nbsp;оптовым компаниям. <span class="fish">рыба</span></p>
+      <div>
+        <h1 class="h1">Турбо-дрожжи<br>под&nbsp;ваш напиток</h1>
+        <p class="hero-sub">Девять формул Dr.&nbsp;Drink — для фруктовой, зерновой и&nbsp;ромовой браги, чистого спирта и&nbsp;больших объёмов до&nbsp;100&nbsp;литров. Поставляем магазинам и&nbsp;оптовым компаниям.</p>
         <div class="hero-cta">
-          <a class="btn btn-gold btn-lg" href="#request"><span class="btn-roll" data-t="Оптовый прайс">Оптовый прайс</span></a>
-          <a class="btn btn-ghost-light btn-lg" href="#lineup"><span class="btn-roll" data-t="Смотреть линейку">Смотреть линейку</span></a>
+          <a class="btn btn-gold btn-lg" href="#contact">Запросить прайс</a>
+          <a class="btn btn-line btn-lg" href="#lineup">Смотреть линейку</a>
         </div>
       </div>
-      <a class="badge badge-gold hero-badge" href="#request" aria-label="Запросить оптовый прайс">
-        <svg class="badge-ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="ring1" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#ring1">ОПТОВЫЙ ПРАЙС • ПО ЗАПРОСУ • ОПТОВЫЙ ПРАЙС • ПО ЗАПРОСУ •</textPath></text></svg>
-        <span class="seal" aria-hidden="true"></span>
-        <svg class="badge-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
+      <a class="hero-logo" href="#about" aria-label="О бренде Dr. Drink"><img src="img/logo.webp" alt="" width="320" height="320"></a>
     </div>
     <ul class="c hero-row" aria-label="Линейка Dr. Drink">
-      <li style="--pk:#760d42"><a href="product.html?p=fruit"><img src="img/fruit.webp" alt="Dr. Drink Fruit"><b>Fruit</b></a></li>
-      <li style="--pk:#5b3f2e"><a href="product.html?p=whiskey"><img src="img/whiskey.webp" alt="Dr. Drink Whiskey"><b>Whiskey</b></a></li>
-      <li style="--pk:#2a2723"><a href="product.html?p=rum"><img src="img/rum.webp" alt="Dr. Drink Rum"><b>Rum</b></a></li>
-      <li style="--pk:#85c5f0" class="lt"><a href="product.html?p=vodka"><img src="img/vodka.webp" alt="Dr. Drink Vodka"><b>Vodka</b></a></li>
-      <li style="--pk:#5fa297" class="lt"><a href="product.html?p=t3"><img src="img/t3.webp" alt="Dr. Drink T3"><b>T3</b></a></li>
-      <li style="--pk:#e5ad3b" class="lt"><a href="product.html?p=t24"><img src="img/t24.webp" alt="Dr. Drink T24"><b>T24</b></a></li>
-      <li style="--pk:#cd5e50"><a href="product.html?p=t48"><img src="img/t48.webp" alt="Dr. Drink T48"><b>T48</b></a></li>
-      <li style="--pk:#1b6779"><a href="product.html?p=carbon"><img src="img/carbon.webp" alt="Dr. Drink Carbon"><b>Carbon</b></a></li>
-      <li style="--pk:#2d2f79"><a href="product.html?p=bigpack"><img src="img/bigpack.webp" alt="Dr. Drink Big Pack 100L"><b>Big Pack</b></a></li>
+      <li><a class="pat pat-fruit" style="--pat-o:.5" href="product.html?p=fruit"><img src="img/fruit.webp" alt="Dr. Drink Fruit"><b>Fruit</b></a></li>
+      <li><a style="--pk:#5b3f2e" href="product.html?p=whiskey"><img src="img/whiskey.webp" alt="Dr. Drink Whiskey"><b>Whiskey</b></a></li>
+      <li><a class="pat pat-rum" style="--pat-o:.5" href="product.html?p=rum"><img src="img/rum.webp" alt="Dr. Drink Rum"><b>Rum</b></a></li>
+      <li class="lt"><a class="pat pat-vodka" style="--pat-o:.6" href="product.html?p=vodka"><img src="img/vodka.webp" alt="Dr. Drink Vodka"><b>Vodka</b></a></li>
+      <li class="lt"><a style="--pk:#5fa297" href="product.html?p=t3"><img src="img/t3.webp" alt="Dr. Drink T3"><b>T3</b></a></li>
+      <li class="lt"><a style="--pk:#e5ad3b" href="product.html?p=t24"><img src="img/t24.webp" alt="Dr. Drink T24"><b>T24</b></a></li>
+      <li><a style="--pk:#cd5e50" href="product.html?p=t48"><img src="img/t48.webp" alt="Dr. Drink T48"><b>T48</b></a></li>
+      <li><a style="--pk:#1b6779" href="product.html?p=carbon"><img src="img/carbon.webp" alt="Dr. Drink Carbon"><b>Carbon</b></a></li>
+      <li><a style="--pk:#2d2f79" href="product.html?p=bigpack"><img src="img/bigpack.webp" alt="Dr. Drink Big Pack 100L"><b>Big Pack</b></a></li>
     </ul>
   </section>
 
-  <!-- опт: условия на виду до заявки — дыра рынка (средняя 1.2/5) -->
-  <section class="sec c" id="opt">
-    <div class="sec-head">
-      <h2 class="h2"><span class="sticker st-coral" style="--rot:-12deg">Опт</span>Магазинам и&nbsp;оптовикам</h2>
-      <p class="lead">Условия — до заявки, а не после звонка менеджера.</p>
-    </div>
-    <div class="opt-grid">
-      <div class="opt-cell"><span class="opt-k">Минимальная партия</span><span class="opt-v tbd">уточняем у&nbsp;производителя</span></div>
-      <div class="opt-cell"><span class="opt-k">Оплата</span><span class="opt-v tbd">уточняем</span></div>
-      <div class="opt-cell"><span class="opt-k">Доставка</span><span class="opt-v tbd">уточняем</span></div>
-      <div class="opt-cell"><span class="opt-k">Документы</span><span class="opt-v">Декларация ЕАЭС, договор с&nbsp;ООО «Русс-маркет» <span class="fish">уточняем</span></span></div>
-      <a class="opt-cell opt-cta" href="#request">
-        <span class="opt-k">Прайс и&nbsp;условия</span>
-        <span class="opt-v">Пришлём на почту в&nbsp;день заявки <span class="fish">рыба</span></span>
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- линейка: карточка = цвет пачки + узор; пачка «вылезает» из плашки (реф Rostivo, блок команды) -->
+  <!-- линейка: карточка в цвет пачки; узор — только у позиций, где он есть на пачке (Fruit, Rum, Vodka) -->
   <section class="sec c" id="lineup">
     <div class="sec-head">
-      <h2 class="h2"><span class="sticker st-mustard" style="--rot:-10deg">9 позиций</span>Линейка Dr.&nbsp;Drink</h2>
-      <p class="lead">Под напиток — Fruit, Whiskey, Rum, Vodka. По скорости — T3, T24, T48. Плюс Carbon и Big Pack на&nbsp;100&nbsp;литров. <span class="fish">рыба</span></p>
+      <h2 class="h2">Линейка Dr.&nbsp;Drink</h2>
+      <p class="lead">Под напиток — Fruit, Whiskey, Rum, Vodka. Турбо-формулы — T3, T24, T48. Плюс Carbon и&nbsp;Big Pack на&nbsp;100&nbsp;литров.</p>
     </div>
     <div class="cards">
-      <article class="card" id="p-fruit" style="--pk:#760d42"><img src="img/fruit.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">Для фруктовой браги</span><h3 class="card-n"><a href="product.html?p=fruit">Fruit</a></h3><p class="card-m"><b>60 г</b><span class="tbd">объём браги — уточняем</span></p></div></article>
-      <article class="card" id="p-whiskey" style="--pk:#5b3f2e"><img src="img/whiskey.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">Для зернового дистиллята</span><h3 class="card-n"><a href="product.html?p=whiskey">Whiskey</a></h3><p class="card-m"><b>73 г</b><span class="tbd">объём браги — уточняем</span></p></div></article>
-      <article class="card" id="p-rum" style="--pk:#2a2723"><img src="img/rum.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">Для мелассы и&nbsp;тростникового сахара</span><h3 class="card-n"><a href="product.html?p=rum">Rum</a></h3><p class="card-m"><b>73 г</b><span class="tbd">объём браги — уточняем</span></p></div></article>
-      <article class="card lt" id="p-vodka" style="--pk:#85c5f0"><img src="img/vodka.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">Для чистого спирта</span><h3 class="card-n"><a href="product.html?p=vodka">Vodka</a></h3><p class="card-m"><b>66 г</b><span class="tbd">объём браги — уточняем</span></p></div></article>
-      <article class="card lt" id="p-t3" style="--pk:#5fa297"><img src="img/t3.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">Сахарная брага</span><h3 class="card-n"><a href="product.html?p=t3">T3</a></h3><p class="card-m"><b>120 г</b><span class="tbd">срок — уточняем</span></p></div></article>
-      <article class="card lt" id="p-t24" style="--pk:#e5ad3b"><img src="img/t24.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">Сахарная брага</span><h3 class="card-n"><a href="product.html?p=t24">T24</a></h3><p class="card-m"><b>175 г</b><span class="tbd">срок — уточняем</span></p></div></article>
-      <article class="card" id="p-t48" style="--pk:#cd5e50"><img src="img/t48.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">Сахарная брага</span><h3 class="card-n"><a href="product.html?p=t48">T48</a></h3><p class="card-m"><b>135 г</b><span class="tbd">срок — уточняем</span></p></div></article>
-      <article class="card" id="p-carbon" style="--pk:#1b6779"><img src="img/carbon.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">С активированным углём <span class="fish">уточняем</span></span><h3 class="card-n"><a href="product.html?p=carbon">Carbon</a></h3><p class="card-m"><b>106 г</b><span class="tbd">объём браги — уточняем</span></p></div></article>
-      <article class="card" id="p-bigpack" style="--pk:#2d2f79"><img src="img/bigpack.webp" alt="" loading="lazy"><div class="card-b"><span class="card-k">На 100 литров браги</span><h3 class="card-n"><a href="product.html?p=bigpack">Big Pack</a></h3><p class="card-m"><b>360 г</b><span class="tbd">срок — уточняем</span></p></div></article>
+      <article class="card pat pat-fruit"><img src="img/fruit.webp" alt="" loading="lazy"><span class="card-k">Для фруктовой браги</span><h3 class="card-n"><a href="product.html?p=fruit">Fruit</a></h3><p class="card-m"><b>60 г</b><span>Подробнее →</span></p></article>
+      <article class="card" style="--pk:#5b3f2e"><img src="img/whiskey.webp" alt="" loading="lazy"><span class="card-k">Для зернового дистиллята</span><h3 class="card-n"><a href="product.html?p=whiskey">Whiskey</a></h3><p class="card-m"><b>73 г</b><span>Подробнее →</span></p></article>
+      <article class="card pat pat-rum"><img src="img/rum.webp" alt="" loading="lazy"><span class="card-k">Для ромовой браги</span><h3 class="card-n"><a href="product.html?p=rum">Rum</a></h3><p class="card-m"><b>73 г</b><span>Подробнее →</span></p></article>
+      <article class="card lt pat pat-vodka"><img src="img/vodka.webp" alt="" loading="lazy"><span class="card-k">Для чистого спирта</span><h3 class="card-n"><a href="product.html?p=vodka">Vodka</a></h3><p class="card-m"><b>66 г</b><span>Подробнее →</span></p></article>
+      <article class="card lt" style="--pk:#5fa297"><img src="img/t3.webp" alt="" loading="lazy"><span class="card-k">Сахарная брага</span><h3 class="card-n"><a href="product.html?p=t3">T3</a></h3><p class="card-m"><b>120 г</b><span>Подробнее →</span></p></article>
+      <article class="card lt" style="--pk:#e5ad3b"><img src="img/t24.webp" alt="" loading="lazy"><span class="card-k">Сахарная брага</span><h3 class="card-n"><a href="product.html?p=t24">T24</a></h3><p class="card-m"><b>175 г</b><span>Подробнее →</span></p></article>
+      <article class="card" style="--pk:#cd5e50"><img src="img/t48.webp" alt="" loading="lazy"><span class="card-k">Сахарная брага</span><h3 class="card-n"><a href="product.html?p=t48">T48</a></h3><p class="card-m"><b>135 г</b><span>Подробнее →</span></p></article>
+      <article class="card" style="--pk:#1b6779"><img src="img/carbon.webp" alt="" loading="lazy"><span class="card-k">Турбо-дрожжи Carbon</span><h3 class="card-n"><a href="product.html?p=carbon">Carbon</a></h3><p class="card-m"><b>106 г</b><span>Подробнее →</span></p></article>
+      <article class="card" style="--pk:#2d2f79"><img src="img/bigpack.webp" alt="" loading="lazy"><span class="card-k">На 100 литров браги</span><h3 class="card-n"><a href="product.html?p=bigpack">Big Pack</a></h3><p class="card-m"><b>360 г</b><span>Подробнее →</span></p></article>
     </div>
   </section>
 
-  <!-- сравнение линейки по цифрам — у рынка его нет на сайте ни у кого (Still Spirits прячет в справке) -->
-  <section class="sec c" id="compare">
-    <div class="sec-head">
-      <h2 class="h2"><span class="sticker st-blue" style="--rot:-8deg">По цифрам</span>Сравнить линейку</h2>
-      <p class="lead">Одна таблица — один источник цифр для всего сайта: карточки берут значения отсюда.</p>
-    </div>
-    <div class="tbl-wrap" role="region" aria-label="Сравнение позиций" tabindex="0">
-      <table class="tbl">
-        <thead><tr><th scope="col">Позиция</th><th scope="col">Масса</th><th scope="col">Объём браги</th><th scope="col">Сахар</th><th scope="col">Срок</th><th scope="col">Крепость</th><th scope="col">Температура</th></tr></thead>
-        <tbody>
-          <tr style="--pk:#760d42"><th scope="row"><i></i>Fruit</th><td>60 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#5b3f2e"><th scope="row"><i></i>Whiskey</th><td>73 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#2a2723"><th scope="row"><i></i>Rum</th><td>73 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#85c5f0"><th scope="row"><i></i>Vodka</th><td>66 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#5fa297"><th scope="row"><i></i>T3</th><td>120 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#e5ad3b"><th scope="row"><i></i>T24</th><td>175 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#cd5e50"><th scope="row"><i></i>T48</th><td>135 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#1b6779"><th scope="row"><i></i>Carbon</th><td>106 г</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-          <tr style="--pk:#2d2f79"><th scope="row"><i></i>Big Pack</th><td>360 г</td><td>100 л</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td><td class="tbd">—</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">Масса — с лицевой стороны пачек. Остальное снимем с оборотов (<code>pac_all.ai</code>) и согласуем с производителем.</p>
-  </section>
-
-  <!-- как запустить: текст с оборота пачки; панель в цвет T3 -->
-  <section class="pnl pnl-pk" id="howto" style="--pk:#5fa297">
+  <!-- преимущества (вместо «Как запустить брагу»): тексты даблснейк.рф, переформулированы без цифр Double Snake; фон пачки Vodka -->
+  <section class="band benefits pat pat-vodka" id="benefits">
     <div class="c">
-      <div class="sec-head on-pk">
-        <h2 class="h2"><span class="sticker st-ink" style="--rot:-10deg">С оборота пачки</span>Как запустить брагу</h2>
+      <div class="sec-head">
+        <h2 class="h2">Почему Dr.&nbsp;Drink</h2>
+        <p class="lead">Всё нужное для брожения уже в&nbsp;пакете — остаётся сахар, вода и&nbsp;тёплое место.</p>
       </div>
-      <ol class="steps">
-        <li><span class="step-n">01</span><b>21 литр воды</b><span>Налейте тёплую воду, 25&nbsp;°C, в ёмкость для брожения</span></li>
-        <li><span class="step-n">02</span><b>6 кг сахара</b><span>Добавьте сахар и размешайте до полного растворения</span></li>
-        <li><span class="step-n">03</span><b>Пакет дрожжей</b><span>Высыпьте содержимое пакета и хорошо перемешайте</span></li>
-        <li><span class="step-n">04</span><b>22–25 °C</b><span>Держите температуру — брага будет готова через 5–6&nbsp;дней <span class="fish fish-ink">на обороте в таблице — 3 дня, уточняем</span></span></li>
-      </ol>
-      <div class="modes">
-        <span class="modes-k">Режимы с оборота</span>
-        <div class="mode"><b>6 кг</b><span>сахара</span><i>3 дня</i><em>15%</em></div>
-        <div class="mode"><b>7 кг</b><span>сахара</span><i>5 дней</i><em>17%</em></div>
-        <a class="mode mode-more" href="#faq">Брага встала? <span>Что делать →</span></a>
+      <div class="ben-grid">
+        <div class="ben"><span class="ben-n">01</span><b>Всё в одном пакете</b><span>Дрожжи, витамины, микроэлементы и&nbsp;питательные вещества уже смешаны. Подкормки не&nbsp;нужны: растворите сахар и&nbsp;внесите дрожжи.</span></div>
+        <div class="ben"><span class="ben-n">02</span><b>Чистая брага</b><span>Штаммы подобраны так, чтобы давать меньше ацетона, эфиров и&nbsp;сивушных масел. Брага пахнет мягче, а&nbsp;дистилляту нужна меньшая очистка.</span></div>
+        <div class="ben"><span class="ben-n">03</span><b>Сбраживают досуха</b><span>Высокая устойчивость к&nbsp;спирту: дрожжи перерабатывают сахар до&nbsp;конца, без внезапной остановки и&nbsp;«недоброда».</span></div>
+        <div class="ben"><span class="ben-n">04</span><b>Ровное брожение</b><span>Спокойно переносят перепады температуры — процесс идёт предсказуемо даже в&nbsp;тёплом помещении.</span></div>
+        <div class="ben"><span class="ben-n">05</span><b>Формула под напиток</b><span>Отдельные составы для фруктов, зерна, рома и&nbsp;чистого спирта, три турбо-формулы и&nbsp;Big Pack на&nbsp;100&nbsp;литров.</span></div>
+        <div class="ben"><span class="ben-n">06</span><b>Декларация ЕАЭС</b><span>Продукция прошла декларирование соответствия. Изготовитель — ООО «Русс-маркет».</span></div>
       </div>
     </div>
   </section>
 
-  <!-- о бренде и производителе: проверяемые факты вместо «EST 2009» (ошибка Dr.Syslov, Drinkit) -->
+  <!-- вместо таблицы «Сравнить линейку» (нет данных): тематическое изображение (сгенерировано в Figma AI) + подбор формулы по сырью -->
+  <section class="still" id="choose">
+    <img src="img/still.webp" alt="Бутыль с бродящей брагой и медный дистиллятор на верстаке" loading="lazy" width="1376" height="768">
+    <div class="c still-in">
+      <div class="still-text">
+        <h2 class="h2">Формула под&nbsp;сырьё</h2>
+        <p>Dr.&nbsp;Drink — турбо-дрожжи для домашней дистилляции. Выберите пакет под то, из чего ставите брагу.</p>
+        <ul class="still-list">
+          <li><b>Фрукты</b><span>Fruit</span></li>
+          <li><b>Зерно</b><span>Whiskey</span></li>
+          <li><b>Ром</b><span>Rum</span></li>
+          <li><b>Сахар</b><span>Vodka, T3, T24, T48, Carbon</span></li>
+          <li><b>100 литров</b><span>Big Pack</span></li>
+        </ul>
+        <a class="btn btn-gold btn-lg" href="#lineup">Вся линейка <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- о бренде: логотип без рамки, проверяемые факты; другие бренды — логотипами -->
   <section class="sec c" id="about">
     <div class="about">
-      <div class="about-pic">
-        <span class="seal seal-frame" aria-hidden="true"></span>
-        <img src="img/medallion.webp" alt="Медальон Dr. Drink — For distillation">
-        <span class="sticker st-coral about-st" style="--rot:-14deg">For distillation</span>
-      </div>
-      <div class="about-text">
+      <img class="about-logo" src="img/logo.webp" alt="Логотип Dr. Drink — For distillation" width="420" height="420" loading="lazy">
+      <div>
         <h2 class="h2">О бренде</h2>
-        <p class="about-lead">Dr.&nbsp;Drink — турбо-дрожжи для домашней дистилляции от&nbsp;ООО «Русс-маркет», Новосибирск. <span class="fish">рыба</span></p>
-        <p>Здесь — история марки и чем Dr.&nbsp;Drink отличается от Double Snake и Double Distill того же производителя. Текст ждём от клиента. <span class="fish">рыба</span></p>
+        <p class="about-lead">Dr.&nbsp;Drink — турбо-дрожжи для домашней дистилляции. Бренд выпускает ООО «Русс-маркет» — производитель дрожжей Double Snake и&nbsp;Double Distill.</p>
         <dl class="facts">
-          <div><dt>Производитель</dt><dd>Made in UK for ООО «Русс-Маркет» <span class="fish">как на пачке, подтверждаем</span></dd></div>
-          <div><dt>Юрлицо</dt><dd>ООО «Русс-маркет», ИНН 5405457179, ОГРН 1125476102982</dd></div>
-          <div><dt>Адрес</dt><dd>г. Новосибирск, ул. Писарева, 60, офис 1.12.1</dd></div>
-          <div><dt>Документы</dt><dd><a class="lnk" href="#request">Декларация ЕАЭС</a> <span class="fish">ждём от клиента</span></dd></div>
+          <div><dt class="lbl">Изготовитель</dt><dd>ООО «Русс-маркет»</dd></div>
+          <div><dt class="lbl">Адрес</dt><dd>г. Новосибирск, ул. Писарева, 60, офис 1.12.1</dd></div>
+          <div><dt class="lbl">Документы</dt><dd><a class="lnk" href="#certificate">Декларация о соответствии ЕАЭС</a></dd></div>
         </dl>
         <div class="family">
-          <span class="family-k">Другие бренды производителя</span>
-          <a class="family-a" href="https://xn--80achgugeq9a.xn--p1ai/" target="_blank" rel="noopener">Double Snake <span>даблснейк.рф ↗</span></a>
-          <span class="family-a is-off">Double Distill <span>сайт в разработке</span></span>
+          <span class="lbl">Другие бренды производителя</span>
+          <div class="family-row">
+            <a class="family-a" href="https://xn--80achgugeq9a.xn--p1ai/" target="_blank" rel="noopener" aria-label="Double Snake — даблснейк.рф"><img src="img/logo-word.svg" alt="Дабл Снейк" width="144" height="72"></a>
+            <span class="family-a is-off"><img src="img/brand-dd.webp" alt="Double Distill" width="124" height="72"></span>
+          </div>
+          <p class="family-note">Сайт Double Distill — в разработке.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- вопросы на языке симптома (приём Still Spirits) -->
-  <section class="sec c" id="faq">
+  <!-- сертификат: блок как на даблснейк.рф, та же декларация (в ней указана марка Dr. Drink) -->
+  <section class="sec c" id="certificate">
     <div class="sec-head">
-      <h2 class="h2"><span class="sticker st-mustard" style="--rot:-9deg">Брожение</span>Частые вопросы</h2>
+      <h2 class="h2">Сертификат</h2>
+      <p class="lead">Продукция прошла декларирование соответствия требованиям Евразийского экономического союза.</p>
     </div>
-    <div class="faq">
-      <details><summary>Брага не стартует</summary><p>Проверьте температуру воды: при закладке — около 25&nbsp;°C. Холодная вода замедляет старт. <span class="fish">рыба</span></p></details>
-      <details><summary>Брага встала или бродит дольше заявленного</summary><p>Чаще всего причина в температуре: ниже 22&nbsp;°C брожение замедляется. Перенесите ёмкость в тёплое место. <span class="fish">рыба</span></p></details>
-      <details><summary>Пахнет сероводородом</summary><p>Обычно это перегрев или нехватка питания для дрожжей. Держите режим с оборота пачки. <span class="fish">рыба</span></p></details>
-      <details><summary>Чем отличаются T3, T24 и T48</summary><p>Ответ дадим цифрами — сроком, сахаром и крепостью — после данных с оборотов. <span class="fish">рыба</span></p></details>
-      <details><summary>Сколько пачек нужно на мой объём</summary><p>Одна пачка — на объём из таблицы «Сравнить линейку». Big Pack — на 100&nbsp;литров. <span class="fish">рыба</span></p></details>
-      <details><summary>Как купить оптом</summary><p>Оставьте заявку внизу страницы — пришлём прайс и условия. Розница — на маркетплейсах. <span class="fish">уточняем</span></p></details>
+    <div class="decl">
+      <a class="decl-pic" href="img/declaration-eaes.webp" target="_blank" rel="noopener" aria-label="Открыть декларацию о соответствии ЕАЭС целиком"><img src="img/declaration-eaes.webp" alt="Декларация о соответствии ЕАЭС, ООО «Русс-маркет»" width="1429" height="1506" loading="lazy"></a>
+      <div>
+        <img class="decl-eac" src="img/eac.svg" alt="EAC" width="56" height="48">
+        <p class="decl-kicker">Евразийский экономический союз</p>
+        <p class="decl-title">Декларация о соответствии</p>
+        <dl class="facts">
+          <div><dt class="lbl">Продукция</dt><dd>Дрожжи сухие пищевые</dd></div>
+          <div><dt class="lbl">Торговые марки</dt><dd>Double Snake, Double Distill, Dr.&nbsp;Drink</dd></div>
+          <div><dt class="lbl">Изготовитель</dt><dd>ООО «Русс-маркет»</dd></div>
+          <div><dt class="lbl">Соответствует</dt><dd>ТР ТС 021/2011, 022/2011, 029/2012</dd></div>
+          <div><dt class="lbl">Рег. номер</dt><dd>ЕАЭС N RU Д-RU.PA01.B.</dd></div>
+          <div><dt class="lbl">Действует</dt><dd>с 05.08.2026 по 04.08.2031</dd></div>
+        </dl>
+        <a class="btn" href="img/declaration-eaes.webp" target="_blank" rel="noopener">Открыть документ <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
     </div>
   </section>
 
-  <!-- заявка: короткая форма, «кто вы» первым (Angel, МирБир), без ИНН на первом шаге (минус Dr.Syslov) -->
-  <section class="pnl pnl-pk" id="request" style="--pk:#1b6779">
-    <div class="c req">
-      <div class="req-head">
-        <h2 class="h2"><span class="sticker st-gold" style="--rot:-8deg">Опт</span>Запросить прайс</h2>
-        <p class="lead">Ответим в рабочий день. Прайс и условия пришлём на почту. <span class="fish fish-light">рыба</span></p>
-        <a class="badge badge-cream req-badge" href="mailto:russmarketllc@mail.ru" aria-label="Написать на почту russmarketllc@mail.ru">
-          <svg class="badge-ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="ring2" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#ring2">НАПИСАТЬ НА ПОЧТУ • НАПИСАТЬ НА ПОЧТУ •</textPath></text></svg>
-          <span class="seal" aria-hidden="true"></span>
-          <svg class="badge-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </a>
+  <!-- вопросы: только то, что подтверждено текстом пачки и даблснейк.рф -->
+  <section class="sec c" id="faq">
+    <div class="sec-head"><h2 class="h2">Частые вопросы</h2></div>
+    <div class="faq">
+      <details><summary>Как поставить брагу</summary><ol><li>Налейте 21&nbsp;литр тёплой воды (25&nbsp;°C) в&nbsp;ёмкость для брожения.</li><li>Добавьте 6&nbsp;кг сахара и&nbsp;размешайте до&nbsp;полного растворения.</li><li>Высыпьте пакет дрожжей и&nbsp;хорошо перемешайте.</li><li>Держите температуру брожения 22–25&nbsp;°C.</li></ol></details>
+      <details><summary>Брага не стартует или встала</summary><p>Проверьте температуру: при закладке вода — около 25&nbsp;°C, во время брожения — 22–25&nbsp;°C. Если в&nbsp;помещении холоднее, перенесите ёмкость в&nbsp;тёплое место.</p></details>
+      <details><summary>Сколько пакетов нужно на мой объём</summary><p>Один пакет — на 21&nbsp;литр воды и&nbsp;6&nbsp;кг сахара, по&nbsp;инструкции на&nbsp;обороте. Для больших объёмов — Big Pack на&nbsp;100&nbsp;литров.</p></details>
+      <details><summary>Как отличить оригинал</summary><p>Посмотрите строку изготовителя на&nbsp;обороте пакета: у&nbsp;оригинала там указано ООО «Русс-маркет».</p></details>
+      <details><summary>Можно ли купить оптом</summary><p>Да — напишите нам на&nbsp;<a class="lnk" href="mailto:russmarketllc@mail.ru">russmarketllc@mail.ru</a>, пришлём прайс и&nbsp;условия.</p></details>
+    </div>
+  </section>
+
+  <!-- связаться: почта вместо формы, без сбора персональных данных — как на даблснейк.рф; фон пачки Fruit -->
+  <section class="band contact pat pat-fruit" id="contact">
+    <div class="ccard">
+      <h2 class="h2">Связаться с&nbsp;нами</h2>
+      <p class="ccard-sub">Напишите на&nbsp;почту — пришлём прайс и&nbsp;ответим на&nbsp;вопросы.</p>
+      <div class="cmail">
+        <span class="lbl">Почта для связи</span><br>
+        <a class="cmail-addr" href="mailto:russmarketllc@mail.ru">russmarketllc@mail.ru</a>
+        <a class="btn btn-lg" href="mailto:russmarketllc@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D1%80%D0%B0%D0%B9%D1%81%D0%B0%20Dr.%20Drink">Написать на почту</a>
+        <p class="cmail-note">Мы не обрабатываем персональные данные.</p>
       </div>
-      <form class="form" id="req-form" novalidate>
-        <fieldset class="who">
-          <legend>Кто вы</legend>
-          <label><input type="radio" name="who" value="shop" checked><span>Магазин</span></label>
-          <label><input type="radio" name="who" value="opt"><span>Оптовая компания</span></label>
-          <label><input type="radio" name="who" value="mp"><span>Селлер маркетплейса</span></label>
-          <label><input type="radio" name="who" value="other"><span>Другое</span></label>
-        </fieldset>
-        <div class="fld"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="name" required><span class="err" id="e-name">Укажите имя</span></div>
-        <div class="fld"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7" required><span class="err" id="e-phone">Укажите телефон</span></div>
-        <div class="fld"><label for="f-mail">Почта</label><input id="f-mail" name="email" type="email" autocomplete="email" required><span class="err" id="e-mail">Проверьте адрес почты</span></div>
-        <div class="fld"><label for="f-city">Город</label><input id="f-city" name="city" autocomplete="address-level2"></div>
-        <div class="fld fld-wide"><label for="f-msg">Комментарий <span class="opt-l">необязательно</span></label><textarea id="f-msg" name="msg" rows="3" placeholder="Какие позиции и объёмы интересуют"></textarea></div>
-        <label class="consent"><input type="checkbox" name="ok" required><span>Согласен на обработку персональных данных</span></label>
-        <button class="btn btn-gold btn-lg btn-block" type="submit"><span class="btn-roll" data-t="Отправить заявку">Отправить заявку</span></button>
-        <p class="form-note">Концепт: отправка не подключена — на хостинге клиента нужен обработчик формы.</p>
-        <div class="form-ok" role="status" hidden><b>Заявка отправлена</b><span>Пришлём прайс на почту в рабочий день.</span></div>
-      </form>
     </div>
   </section>
 
 </main>
 
-<footer class="ft pnl pnl-label">
+<footer class="ft">
   <div class="c ft-in">
-    <a class="ft-logo" href="#top"><img src="img/medallion.webp" alt="" width="72" height="72"><span>Dr.&nbsp;Drink</span></a>
+    <a class="ft-logo" href="#top" aria-label="Dr. Drink — наверх"><img src="img/logo.webp" alt="" width="96" height="96"></a>
     <nav class="ft-nav" aria-label="Разделы в подвале">
-      <a href="#lineup">Продукция</a><a href="#compare">Сравнить</a><a href="#howto">Как запустить</a><a href="#opt">Оптовикам</a><a href="#about">О бренде</a><a href="#faq">Вопросы</a>
+      <a href="#lineup">Продукция</a><a href="#benefits">Преимущества</a><a href="#about">О бренде</a><a href="#certificate">Сертификат</a><a href="#faq">Вопросы</a><a href="#contact">Связаться</a>
     </nav>
     <div class="ft-req">
       <a class="ft-mail" href="mailto:russmarketllc@mail.ru">russmarketllc@mail.ru</a>
-      <p>ООО «Русс-маркет» · ИНН 5405457179<br>г. Новосибирск, ул. Писарева, 60, офис 1.12.1</p>
+      <p>ООО «Русс-маркет»<br>г. Новосибирск, ул. Писарева, 60, офис 1.12.1</p>
     </div>
   </div>
-  <div class="c ft-bot"><span>© 2026 Dr. Drink</span><a href="#">Политика конфиденциальности</a><a href="https://xn--80achgugeq9a.xn--p1ai/" target="_blank" rel="noopener">Double Snake ↗</a></div>
+  <div class="c ft-bot"><span>© 2026 Dr. Drink</span><a href="https://xn--80achgugeq9a.xn--p1ai/" target="_blank" rel="noopener">Double Snake ↗</a></div>
 </footer>
 
 <script src="js/site.js"></script>
