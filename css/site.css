@@ -76,15 +76,16 @@ a { color: inherit; }
 .pat-rum   { --pk: var(--rum); background-color: var(--pk);   --pat-l: url(../img/pat-rum-l.webp);   --pat-r: url(../img/pat-rum-r.webp); }
 .pat-vodka { --pk: var(--vodka); background-color: var(--pk); --pat-l: url(../img/pat-vodka-l.webp); --pat-r: url(../img/pat-vodka-r.webp); }
 .pat-fruit { --pk: var(--fruit); background-color: var(--pk); --pat-l: url(../img/pat-fruit-l.webp); --pat-r: url(../img/pat-fruit-r.webp); }
+.pat-whiskey { --pk: #3c2b1b; background-color: var(--pk); --pat-l: url(../img/pat-whiskey-l.webp); --pat-r: url(../img/pat-whiskey-r.webp); }
 
 /* ---------- шапка: сплошная полоса во всю ширину, не плавающая; при скролле — компактная ---------- */
 .hd { position: sticky; top: 0; z-index: 50; background: var(--ink); color: var(--cream); border-bottom: 1px solid rgba(217,165,74,.35); transition: box-shadow var(--t); }
 .hd.is-scrolled { box-shadow: 0 8px 24px rgba(0,0,0,.25); }
 .hd-in { display: flex; align-items: center; gap: 40px; height: 80px; transition: height var(--t); }
 .hd.is-scrolled .hd-in { height: 64px; }
-.hd-logo { position: relative; flex: none; width: 88px; height: 100%; }
-/* медальон «свисает» за нижний край шапки, как печать; при скролле убирается внутрь */
-.hd-logo img { position: absolute; left: 0; top: 8px; width: 88px; height: 88px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); transition: transform var(--t), width var(--t), height var(--t), top var(--t); }
+.hd-logo { position: relative; flex: none; width: 64px; height: 100%; }
+/* медальон целиком внутри полосы — ничего не свисает (клиент: «висящая шапка не нравится») */
+.hd-logo img { position: absolute; left: 0; top: 8px; width: 64px; height: 64px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); transition: transform var(--t), width var(--t), height var(--t), top var(--t); }
 .hd-logo:hover img { transform: scale(1.06); }
 .hd.is-scrolled .hd-logo img { width: 52px; height: 52px; top: 6px; }
 .hd-nav { display: flex; gap: 4px; margin-left: auto; }

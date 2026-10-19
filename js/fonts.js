@@ -7,6 +7,7 @@
     robslab:  { name: 'Roboto Slab — брусковый (как «T24», «CARBON»)', css: '"Roboto Slab", Georgia, serif', q: 'Roboto+Slab:wght@700;800', w: 800, ls: '-.01em', tt: 'uppercase' },
     bitter:   { name: 'Bitter — брусковый, мягче', css: '"Bitter", Georgia, serif', q: 'Bitter:wght@700;800', w: 800, ls: '-.01em', tt: 'uppercase' },
     prosto:   { name: 'Prosto One — как «ТУРБО ДРОЖЖИ» на пачке', css: '"Prosto One", sans-serif', q: 'Prosto+One', w: 400, ls: '0', tt: 'uppercase' },
+    superclar:{ name: "Superclarendon — шрифт пачки (виден только на Mac)", css: '"Superclarendon", "Roboto Slab", Georgia, serif', q: 'Roboto+Slab:wght@700;800', w: 900, ls: '0', tt: 'uppercase' },
     alice:    { name: 'Alice — антиква без капса', css: '"Alice", Georgia, serif', q: 'Alice', w: 400, ls: '0', tt: 'none' },
   };
   const BODY = {
