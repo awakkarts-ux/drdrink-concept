@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dr. Drink T48 — турбо-дрожжи</title>
-<meta name="description" content="Турбо-дрожжи Dr. Drink: как поставить брагу, состав, оптовые поставки.">
+<meta name="description" content="Турбо-дрожжи Dr. Drink: характеристики, как поставить брагу, документы, оптовые поставки.">
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Golos+Text:wght@400;500;600&display=swap" id="font-link">
-<link rel="stylesheet" href="css/site.css">
-<script src="js/fonts.js"></script>
+<link rel="stylesheet" href="css/site.css?v=20261019">
+<script src="js/fonts.js?v=20261019"></script>
 </head>
 <body class="page-product">
 <a class="skip" href="#main">К содержанию</a>
@@ -23,77 +23,120 @@
       <a href="index.html#benefits">Преимущества</a>
       <a href="index.html#about">О бренде</a>
       <a href="index.html#certificate">Сертификат</a>
+      <a href="index.html#brands">Бренды</a>
       <a href="index.html#faq">Вопросы</a>
     </nav>
-    <a class="btn btn-gold" href="index.html#contact">Связаться</a>
+    <a data-contact class="btn btn-gold" href="index.html#contact">Связаться</a>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- первый экран товара: панель в цвет пачки (узор — у Fruit, Rum, Vodka), из данных — только масса (клиент 18.10) -->
+  <!-- страница товара по образцу даблснейк.рф/c3.html: первый экран (пачка, название, лид, параметры, кнопки) → вкладки → другие позиции -->
   <section class="pd" id="pd" style="--pk:#cd5e50">
     <div class="c">
       <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span>/</span><a href="index.html#lineup">Продукция</a><span>/</span><b data-f="name">T48</b></nav>
       <div class="pd-in">
         <div class="pd-pic"><img data-f="img" src="img/t48.webp" alt="Пачка Dr. Drink T48" width="677" height="900"></div>
-        <div>
+        <div class="pd-info">
           <span class="pd-kind" data-f="kind">Сахарная брага</span>
           <h1 class="pd-h1" data-f="name">T48</h1>
+          <p class="pd-lead" data-f="lead"></p>
+          <dl class="pd-spec" id="pd-spec"></dl>
           <div class="pd-buy">
-            <div class="pd-mass"><span class="lbl">Масса</span><b data-f="mass">135 г</b></div>
-            <a class="btn btn-gold" href="index.html#contact">Запросить прайс</a>
+            <a data-contact class="btn btn-gold btn-lg" href="index.html#contact">Запросить прайс</a>
+            <a data-contact class="pd-opt" href="mailto:russmarketllc@mail.ru?subject=%D0%9E%D0%BF%D1%82%20Dr.%20Drink">Опт и вопросы — написать на почту <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- инструкция и состав — текст с оборота пачки -->
-  <section class="sec c" id="use">
-    <div class="pd-cols">
-      <div class="pd-col">
-        <h2 class="h3">Как поставить брагу</h2>
-        <ol class="pd-steps">
-          <li><b>21 л воды</b> при 25 °C — в ёмкость для брожения</li>
-          <li><b>6 кг сахара</b> — размешать до полного растворения</li>
-          <li><b>Пакет дрожжей</b> — высыпать и хорошо перемешать</li>
-          <li><b>22–25 °C</b> — рекомендуемая температура брожения</li>
-        </ol>
+  <!-- вкладки: описание, характеристики, как поставить брагу (только где есть оборот), документы -->
+  <section class="sec c" id="about-product">
+    <div class="pd-tabs">
+      <div class="seg" role="tablist" aria-label="О товаре">
+        <button role="tab" id="t-desc" aria-selected="true" aria-controls="p-desc">Описание</button>
+        <button role="tab" id="t-specs" aria-selected="false" aria-controls="p-specs" tabindex="-1">Характеристики</button>
+        <button role="tab" id="t-use" aria-selected="false" aria-controls="p-use" tabindex="-1">Как поставить брагу</button>
+        <button role="tab" id="t-docs" aria-selected="false" aria-controls="p-docs" tabindex="-1">Документы</button>
       </div>
-      <div class="pd-col">
-        <h2 class="h3">Состав</h2>
-        <p>Спиртовые дрожжи, витамины, микроэлементы, питательные вещества.</p>
-        <h2 class="h3" style="margin-top:32px">Документы</h2>
-        <p><a class="lnk" href="index.html#certificate">Декларация о соответствии ЕАЭС</a> · изготовитель ООО «Русс-маркет»</p>
+      <div class="pane" id="p-desc" role="tabpanel" aria-labelledby="t-desc"><div class="pd-text" id="pd-desc"></div></div>
+      <div class="pane" id="p-specs" role="tabpanel" aria-labelledby="t-specs" hidden><ul class="specs" id="pd-specs"></ul></div>
+      <div class="pane" id="p-use" role="tabpanel" aria-labelledby="t-use" hidden>
+        <div class="pd-use">
+          <ol class="pd-steps" id="pd-steps"></ol>
+          <div class="pd-modes">
+            <span class="lbl">Режимы с оборота пакета</span>
+            <table class="modes"><thead><tr><th scope="col">Сахар</th><th scope="col">Крепость браги</th></tr></thead><tbody id="pd-modes"></tbody></table>
+          </div>
+        </div>
+      </div>
+      <div class="pane" id="p-docs" role="tabpanel" aria-labelledby="t-docs" hidden>
+        <figure class="doc">
+          <a class="doc-img" href="img/declaration-eaes.webp" target="_blank" rel="noopener"><img src="img/declaration-eaes.webp" alt="Декларация о соответствии ЕАЭС, ООО «Русс-маркет»" width="1429" height="1506" loading="lazy"></a>
+          <figcaption><b>Декларация о соответствии ЕАЭС</b><span>ЕАЭС N RU Д-RU.PA01.B. · действует до 04.08.2031</span><span>Торговые марки: Double Snake, Double Distill, Dr.&nbsp;Drink · изготовитель ООО «Русс-маркет»</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- другие позиции -->
+  <!-- другие позиции — те же карточки, что в линейке на главной -->
   <section class="sec c" id="other">
-    <div class="sec-head"><h2 class="h2">Другие позиции</h2></div>
-    <ul class="hero-row other-row" id="other-row" aria-label="Другие позиции Dr. Drink"></ul>
+    <div class="sec-head"><h2 class="h2">Другие позиции Dr.&nbsp;Drink</h2></div>
+    <div class="cards" id="other-cards"></div>
   </section>
 
 </main>
 
-<footer class="ft" style="margin-top:120px">
+<footer class="ft">
   <div class="c ft-in">
-    <a class="ft-logo" href="index.html" aria-label="Dr. Drink — на главную"><img src="img/logo.webp" alt="" width="96" height="96"></a>
-    <nav class="ft-nav" aria-label="Разделы в подвале">
-      <a href="index.html#lineup">Продукция</a><a href="index.html#benefits">Преимущества</a><a href="index.html#about">О бренде</a><a href="index.html#certificate">Сертификат</a><a href="index.html#faq">Вопросы</a><a href="index.html#contact">Связаться</a>
-    </nav>
-    <div class="ft-req">
+    <div class="ft-l">
+      <a class="ft-logo" href="index.html" aria-label="Dr. Drink — на главную"><img src="img/logo.webp" alt="" width="96" height="96"></a>
+      <div class="ft-cols">
+        <div class="ft-col"><span class="ft-label">Сайт</span><a href="index.html#lineup">Продукция</a><a href="index.html#benefits">Преимущества</a><a href="index.html#about">О бренде</a><a href="index.html#certificate">Сертификат</a><a href="index.html#faq">Частые вопросы</a><a data-contact href="index.html#contact">Связаться</a></div>
+        <div class="ft-col"><span class="ft-label">Бренды</span><a href="https://xn--80achgugeq9a.xn--p1ai/" target="_blank" rel="noopener">Дабл Снейк</a><a href="#" data-soon>Double Distill</a><a href="index.html">Dr. Drink</a></div>
+      </div>
+    </div>
+    <div class="ft-r">
+      <span class="ft-label">Опт и вопросы — ответим на почту</span>
       <a class="ft-mail" href="mailto:russmarketllc@mail.ru">russmarketllc@mail.ru</a>
-      <p>ООО «Русс-маркет»<br>г. Новосибирск, ул. Писарева, 60, офис 1.12.1</p>
+      <dl class="ft-reqs">
+        <div><dt>Компания</dt><dd>ООО «Русс-маркет»</dd></div>
+        <div><dt>ИНН / КПП</dt><dd>5405457179 / 540601001</dd></div>
+        <div><dt>ОГРН</dt><dd>1125476102982</dd></div>
+        <div><dt>ОКТМО</dt><dd>50401386</dd></div>
+        <div><dt>Адрес</dt><dd>Новосибирская область, г. Новосибирск, ул. Николая Островского, д. 49</dd></div>
+      </dl>
     </div>
   </div>
-  <div class="c ft-bot"><span>© 2026 Dr. Drink</span><a href="https://xn--80achgugeq9a.xn--p1ai/" target="_blank" rel="noopener">Double Snake ↗</a></div>
+  <div class="c ft-bot"><span>© 2026 Dr. Drink — официальный сайт бренда</span><span class="age18" role="img" aria-label="Только для лиц старше 18 лет">18+</span></div>
 </footer>
 
-<script src="js/products.js"></script>
-<script src="js/product.js"></script>
-<script src="js/site.js"></script>
+<!-- всплывающие окна — как на даблснейк.рф: «Связаться» (почта, без сбора данных) и «Сайт в разработке» -->
+<dialog class="cdlg" id="contact-dlg" aria-labelledby="cdlg-title">
+  <button class="cdlg-x" type="button" aria-label="Закрыть" data-close><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="dcard">
+    <div class="dcard-head">
+      <h2 class="dcard-title" id="cdlg-title">Связаться<br>с&nbsp;нами</h2>
+      <p class="dcard-sub">Напишите нам на почту — ответим в&nbsp;ближайшее время</p>
+    </div>
+    <div class="dmail">
+      <span class="dmail-label">Почта для связи</span>
+      <a class="dmail-addr" href="mailto:russmarketllc@mail.ru">russmarketllc@mail.ru</a>
+      <p class="dmail-text">Запросить прайс можно через электронную почту.</p>
+      <a class="btn btn-gold btn-lg dmail-btn" href="mailto:russmarketllc@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D1%80%D0%B0%D0%B9%D1%81%D0%B0%20Dr.%20Drink">Написать на почту</a>
+      <p class="dmail-note">Мы не обрабатываем персональные данные.</p>
+    </div>
+  </div>
+</dialog>
+<dialog class="cdlg cdlg-s" id="soon-dlg" aria-labelledby="soon-title">
+  <button class="cdlg-x" type="button" aria-label="Закрыть" data-close><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="dcard dcard-s"><h2 class="dcard-title" id="soon-title">Сайт<br>в&nbsp;разработке</h2></div>
+</dialog>
+
+<script src="js/products.js?v=20261019"></script>
+<script src="js/product.js?v=20261019"></script>
+<script src="js/site.js?v=20261019"></script>
 </body>
 </html>

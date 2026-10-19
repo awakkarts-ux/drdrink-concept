@@ -4,6 +4,7 @@
   const slug = new URLSearchParams(location.search).get('p') || 't48';
   const p = list.find((x) => x.slug === slug) || list.find((x) => x.slug === 't48');
   if (!p) return;
+  const b = p.back;
 
   document.title = `Dr. Drink ${p.name} — турбо-дрожжи`;
   const pd = document.getElementById('pd');
@@ -11,16 +12,66 @@
   pd.classList.toggle('lt', p.light);
   if (p.pat) pd.classList.add('pat', `pat-${p.pat}`);
 
+  const lead = b
+    ? `Спиртовые турбо-дрожжи Dr. Drink ${p.name}. Один пакет — на ${b.water} воды и ${b.sugar} сахара, крепость браги ${b.abv}.`
+    : `Спиртовые турбо-дрожжи Dr. Drink ${p.name}. ${p.kind}, пакет ${p.mass}.`;
+
   document.querySelectorAll('[data-f]').forEach((el) => {
     const f = el.dataset.f;
     if (f === 'img') { el.src = `img/${p.slug}.webp`; el.alt = `Пачка Dr. Drink ${p.name}`; return; }
-    el.textContent = p[f];
+    el.textContent = f === 'lead' ? lead : p[f];
   });
 
-  // лента «Другие позиции»: все, кроме текущей; узор — там, где он есть на пачке
-  const row = document.getElementById('other-row');
-  row.innerHTML = list.filter((x) => x.slug !== p.slug).map((x) => `
-    <li${x.light ? ' class="lt"' : ''}>
-      <a${x.pat ? ` class="pat pat-${x.pat}" style="--pat-o:.5"` : ` style="--pk:${x.color}"`} href="product.html?p=${x.slug}"><img src="img/${x.slug}.webp" alt="Dr. Drink ${x.name}" loading="lazy"><b>${x.name}</b></a>
-    </li>`).join('');
+  // параметры: масса — у всех; остальное — только где есть данные с оборота
+  const spec = [['Масса пакета', p.mass]];
+  if (b) spec.push(['Крепость браги', b.abv], ['Сахар на пакет', b.sugar], ['Вода', b.water]);
+  document.getElementById('pd-spec').innerHTML = spec.map(([k, v]) => `<div><dt class="lbl">${k}</dt><dd>${v}</dd></div>`).join('');
+
+  const specs = [['Назначение', p.kind], ['Масса пакета', p.mass]];
+  if (b) specs.push(['Сахар на пакет', b.sugar], ['Вода', b.water], ['Крепость браги', b.abv], ['Температура брожения', b.temp], ['Состав', b.comp]);
+  specs.push(['Изготовитель', 'ООО «Русс-маркет»'], ['Документы', 'Декларация о соответствии ЕАЭС']);
+  document.getElementById('pd-specs').innerHTML = specs.map(([k, v]) => `<li><span>${k}</span><b>${v}</b></li>`).join('');
+
+  document.getElementById('pd-desc').innerHTML = b
+    ? `<p>${p.name} — спиртовые турбо-дрожжи Dr. Drink для домашней дистилляции. В пакете уже есть всё для брожения: дрожжи, витамины, микроэлементы и питательные вещества.</p><p>Один пакет рассчитан на ${b.water} воды и ${b.sugar} сахара. При 6 кг сахара крепость браги — 15%, при 7 кг — 17%. Рекомендуемая температура брожения — ${b.temp}.</p>`
+    : `<p>${p.name} — спиртовые турбо-дрожжи Dr. Drink для домашней дистилляции. ${p.kind}, масса пакета — ${p.mass}.</p><p>Режимы брожения указаны на обороте пакета. Прайс и условия опта пришлём по запросу на почту.</p>`;
+
+  // «Как поставить брагу» — только для позиций с оборотом
+  const tUse = document.getElementById('t-use');
+  if (b) {
+    document.getElementById('pd-steps').innerHTML = b.steps.map(([k, v]) => `<li><b>${k}</b> — ${v}</li>`).join('');
+    document.getElementById('pd-modes').innerHTML = b.modes.map(([s, a]) => `<tr><td>${s}</td><td>${a}</td></tr>`).join('');
+  } else {
+    tUse.remove();
+    document.getElementById('p-use').remove();
+  }
+
+  // вкладки: клик и стрелки
+  const tabs = [...document.querySelectorAll('.seg [role="tab"]')];
+  const select = (t) => {
+    tabs.forEach((x) => {
+      const on = x === t;
+      x.setAttribute('aria-selected', String(on));
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', (e) => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      const n = tabs[(i + d + tabs.length) % tabs.length];
+      select(n); n.focus();
+    });
+  });
+
+  // другие позиции — карточки как в линейке на главной
+  document.getElementById('other-cards').innerHTML = list.filter((x) => x.slug !== p.slug).map((x) => `
+    <article class="card${x.light ? ' lt' : ''}${x.pat ? ` pat pat-${x.pat}` : ''}"${x.pat ? '' : ` style="--pk:${x.color}"`}>
+      <img src="img/${x.slug}.webp" alt="" loading="lazy">
+      <span class="card-k">${x.kind}</span>
+      <h3 class="card-n"><a href="product.html?p=${x.slug}">${x.name}</a></h3>
+      <p class="card-m"><b>${x.mass}</b><span>Подробнее →</span></p>
+    </article>`).join('');
 })();
