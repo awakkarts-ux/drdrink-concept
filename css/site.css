@@ -91,6 +91,10 @@ a { color: inherit; }
 /* медальон целиком внутри полосы — ничего не свисает (клиент: «висящая шапка не нравится») */
 .hd-logo img { position: absolute; left: 0; top: 8px; width: 64px; height: 64px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); transition: transform var(--t); }
 .hd-logo:hover img { transform: scale(1.06); }
+/* мини-анимация лого в шапке — механика header-logo-wave.js с даблснейк.рф: один проход после загрузки и при наведении/фокусе */
+.hd-logo-anim { position: absolute; left: 0; top: 8px; width: 64px; height: 64px; object-fit: cover; clip-path: circle(46.4% at 49.9% 52.2%); filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); transition: transform var(--t); }
+.hd-logo:hover .hd-logo-anim { transform: scale(1.06); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .hd-nav { display: flex; gap: 4px; margin-left: auto; }
 .hd-nav a { padding: 10px 14px; border-radius: 10px; font-size: 16px; font-weight: var(--head-w); letter-spacing: .04em; text-decoration: none; color: rgba(253,248,230,.78); transition: color var(--t), background-color var(--t); }
 .hd-nav a:hover { color: var(--cream); background: rgba(253,248,230,.08); }

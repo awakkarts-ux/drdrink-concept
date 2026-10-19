@@ -37,6 +37,20 @@
   if (btn) btn.addEventListener("click", () => { userPaused = !userPaused; if (userPaused) v.pause(); else play(); setBtn(userPaused); });
 })();
 
+// мини-анимация лого в шапке (механика header-logo-wave.js с даблснейк.рф): один проход через 0,65 с после загрузки
+// и заново при наведении мышью или фокусе; на тач и при «уменьшить движение» — статичный кадр
+(() => {
+  const link = document.querySelector(".hd-logo"), v = link && link.querySelector(".hd-logo-anim");
+  if (!v) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const play = () => { if (reduced.matches || document.hidden || !v.paused) return; v.currentTime = 0; v.play().catch(() => {}); };
+  v.addEventListener("ended", () => { v.currentTime = 0; });
+  setTimeout(play, 650);
+  link.addEventListener("pointerenter", (e) => { if (e.pointerType !== "touch") play(); });
+  link.addEventListener("focus", play);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) { v.pause(); v.currentTime = 0; } });
+})();
+
 // появление элементов при скролле (как .rv на даблснейк.рф, но с каскадом по группам).
 // Включается только с классом html.anim-on (его ставит скрипт в <head>, если не выбрано «уменьшить движение») —
 // без JS или при отключённых анимациях всё видно сразу.
