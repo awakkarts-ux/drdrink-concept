@@ -51,6 +51,28 @@
   document.addEventListener("visibilitychange", () => { if (document.hidden) { v.pause(); v.currentTime = 0; } });
 })();
 
+// волна букв логотипа Double Snake в баннере «Другие бренды» — механика и тайминги header-logo-wave.js с даблснейк.рф
+// (кривая перенесена в CSS @keyframes pb-wave): один раз, когда баннер виден, и при наведении/фокусе; полный проход — 4 с
+(() => {
+  const logo = document.querySelector(".pb-wave");
+  if (!logo) return;
+  const card = logo.closest(".pb-card");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let timer = 0;
+  const play = () => {
+    if (logo.classList.contains("is-waving") || reduced.matches || document.hidden) return;
+    logo.classList.add("is-waving");
+    timer = setTimeout(() => logo.classList.remove("is-waving"), 4000);
+  };
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { io.disconnect(); setTimeout(play, 650); } }, { threshold: 0.5 });
+    io.observe(card);
+  }
+  card.addEventListener("pointerenter", (e) => { if (e.pointerType !== "touch") play(); });
+  card.addEventListener("focus", play);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) { clearTimeout(timer); logo.classList.remove("is-waving"); } });
+})();
+
 // появление элементов при скролле (как .rv на даблснейк.рф, но с каскадом по группам).
 // Включается только с классом html.anim-on (его ставит скрипт в <head>, если не выбрано «уменьшить движение») —
 // без JS или при отключённых анимациях всё видно сразу.

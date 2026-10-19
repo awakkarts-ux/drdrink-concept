@@ -235,6 +235,37 @@ a { color: inherit; }
 .pb-logo { display: block; height: auto; }
 .pb-logo-dd { width: min(100%, 260px); }
 .pb-logo-ds { width: min(100%, 230px); }
+.pb-wave { overflow: visible; }
+/* волна букв (header-logo-wave.js с даблснейк.рф, переписано на CSS): буква i стартует через 0,2 + 0,43·i с, длится 1,6 с */
+.pb-wave [data-wave-letter] { transform-box: fill-box; transform-origin: center; }
+.pb-wave.is-waving [data-wave-letter] { animation: pb-wave 1.6s linear calc(.2s + var(--i) * .43s) both; }
+.pb-wave [data-wave-letter="0"] { --i: 0; --a: -6; } .pb-wave [data-wave-letter="1"] { --i: 1; --a: -4; } .pb-wave [data-wave-letter="2"] { --i: 2; --a: -2; }
+.pb-wave [data-wave-letter="3"] { --i: 3; --a: 0; } .pb-wave [data-wave-letter="4"] { --i: 4; --a: 2; }
+@keyframes pb-wave {
+  0% { transform: translate(0px, 0px) rotate(calc(var(--a) * 0deg + 0deg)) scale(1); }
+  5% { transform: translate(0.01px, -0.103px) rotate(calc(var(--a) * 0.024deg + 0.015deg)) scale(1.003); }
+  10% { transform: translate(0.073px, -0.401px) rotate(calc(var(--a) * 0.095deg + 0.112deg)) scale(1.011); }
+  15% { transform: translate(0.217px, -0.866px) rotate(calc(var(--a) * 0.206deg + 0.333deg)) scale(1.024); }
+  20% { transform: translate(0.427px, -1.451px) rotate(calc(var(--a) * 0.345deg + 0.657deg)) scale(1.04); }
+  25% { transform: translate(0.65px, -2.1px) rotate(calc(var(--a) * 0.5deg + 1deg)) scale(1.057); }
+  30% { transform: translate(0.809px, -2.749px) rotate(calc(var(--a) * 0.655deg + 1.245deg)) scale(1.075); }
+  35% { transform: translate(0.835px, -3.334px) rotate(calc(var(--a) * 0.794deg + 1.285deg)) scale(1.091); }
+  40% { transform: translate(0.691px, -3.799px) rotate(calc(var(--a) * 0.905deg + 1.063deg)) scale(1.104); }
+  45% { transform: translate(0.392px, -4.097px) rotate(calc(var(--a) * 0.976deg + 0.603deg)) scale(1.112); }
+  50% { transform: translate(0px, -4.2px) rotate(calc(var(--a) * 1deg + 0deg)) scale(1.115); }
+  55% { transform: translate(-0.392px, -4.097px) rotate(calc(var(--a) * 0.976deg + -0.603deg)) scale(1.112); }
+  60% { transform: translate(-0.691px, -3.799px) rotate(calc(var(--a) * 0.905deg + -1.063deg)) scale(1.104); }
+  65% { transform: translate(-0.835px, -3.334px) rotate(calc(var(--a) * 0.794deg + -1.285deg)) scale(1.091); }
+  70% { transform: translate(-0.809px, -2.749px) rotate(calc(var(--a) * 0.655deg + -1.245deg)) scale(1.075); }
+  75% { transform: translate(-0.65px, -2.1px) rotate(calc(var(--a) * 0.5deg + -1deg)) scale(1.058); }
+  80% { transform: translate(-0.427px, -1.451px) rotate(calc(var(--a) * 0.345deg + -0.657deg)) scale(1.04); }
+  85% { transform: translate(-0.217px, -0.866px) rotate(calc(var(--a) * 0.206deg + -0.333deg)) scale(1.024); }
+  90% { transform: translate(-0.073px, -0.401px) rotate(calc(var(--a) * 0.095deg + -0.112deg)) scale(1.011); }
+  95% { transform: translate(-0.01px, -0.103px) rotate(calc(var(--a) * 0.024deg + -0.015deg)) scale(1.003); }
+  100% { transform: translate(0px, 0px) rotate(calc(var(--a) * 0deg + 0deg)) scale(1); }
+}
+
+
 .pb-cap { display: block; margin-top: 14px; font-size: 13px; font-weight: 500; line-height: 1.4; opacity: .75; }
 .pb-go { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font: var(--head-w) 16px/1 var(--f-head); text-transform: var(--head-tt); letter-spacing: .04em; }
 .pb-go .i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; transition: transform var(--t); }
