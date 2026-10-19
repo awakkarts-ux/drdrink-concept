@@ -17,16 +17,24 @@
   secs.forEach((s) => io.observe(s));
 })();
 
-// анимация лого (видео клиента без звука) — бесконечный цикл; при «уменьшить движение» стоит на первом кадре
+// анимация лого (видео клиента без звука) — бесконечный цикл; кнопка паузы (WCAG 2.2.2); при «уменьшить движение» — стоит на первом кадре
 (() => {
-  const v = document.querySelector('.logo-anim');
+  const v = document.querySelector(".logo-anim");
   if (!v) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); return; }
+  const btn = document.querySelector(".logo-toggle");
+  const setBtn = (paused) => {
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", String(paused));
+    btn.setAttribute("aria-label", paused ? "Запустить анимацию логотипа" : "Остановить анимацию логотипа");
+  };
+  let userPaused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const play = () => { if (!userPaused && !document.hidden) v.play().catch(() => {}); };
   v.loop = true;
-  const play = () => v.play().catch(() => {});
-  if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
-  // вкладка снова видна — продолжить (браузер мог остановить фоновое видео)
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) play(); });
+  if (userPaused) { v.removeAttribute("autoplay"); v.pause(); }
+  setBtn(userPaused);
+  if (v.readyState >= 2) play(); else v.addEventListener("canplay", play, { once: true });
+  document.addEventListener("visibilitychange", play);
+  if (btn) btn.addEventListener("click", () => { userPaused = !userPaused; if (userPaused) v.pause(); else play(); setBtn(userPaused); });
 })();
 
 // появление элементов при скролле (как .rv на даблснейк.рф, но с каскадом по группам).

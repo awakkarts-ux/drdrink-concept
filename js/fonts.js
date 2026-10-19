@@ -32,6 +32,8 @@
   };
   apply();
 
+  // ?noui — без панели (для снимков, например og.jpg)
+  if (url.searchParams.has('noui')) return;
   document.addEventListener('DOMContentLoaded', () => {
     const box = document.createElement('div');
     box.className = 'fontpick';
