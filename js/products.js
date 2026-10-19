@@ -25,4 +25,4 @@ window.DR_PRODUCTS = [
   { slug: 'bigpack', name: 'Big Pack', kind: 'На 100 литров браги',       mass: '360 г', color: '#2d2f79', light: false },
 ];
 // размеры вырезок (для width/height у <img>)
-window.DR_DIM = {"fruit":[680,900],"whiskey":[677,900],"rum":[609,770],"vodka":[620,822],"t3":[551,784],"t24":[678,900],"t48":[678,900],"carbon":[676,900],"bigpack":[678,900]};
+window.DR_DIM = {"fruit":[683,900],"whiskey":[677,900],"rum":[612,772],"vodka":[620,821],"t3":[551,785],"t24":[678,900],"t48":[679,900],"carbon":[676,900],"bigpack":[679,900]};
