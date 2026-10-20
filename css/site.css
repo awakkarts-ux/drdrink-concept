@@ -371,12 +371,13 @@ a { color: inherit; }
 .pb-card:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 
 @media (max-width: 1099px) { .pb-grid { grid-template-columns: 1fr; gap: 24px; } }
+/* ≤639: баннер в потоке — текст в блоке одной высоты, под ним веер фиксированного размера; оба баннера одинаковые, пачки не наезжают на текст */
 @media (max-width: 639px) {
-  .pb-card { aspect-ratio: 4 / 5; }
-  .pb-text { left: 20px; top: 24px; right: 20px; max-width: none; }
+  .pb-card { aspect-ratio: auto; display: flex; flex-direction: column; padding: 24px 20px 40px; }
+  .pb-text { position: relative; inset: auto; max-width: none; min-height: 196px; }
   .pb-logo-ds { width: 180px; } .pb-logo-dd { width: 200px; }
-  .pb-fan { right: 6%; bottom: 6%; width: 88%; height: 52%; }
-  .pb-fan img { height: 52cqw; } .pb-fan .f2 { height: 58cqw; }
+  .pb-fan { order: 2; position: relative; inset: auto; width: 86%; height: 66cqw; margin: 8px auto 0; }
+  .pb-fan img { height: 54cqw; } .pb-fan .f2 { height: 60cqw; }
 }
 
 /* ---------- всплывающие окна (как на даблснейк.рф) ---------- */
