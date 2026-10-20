@@ -26,7 +26,7 @@
   nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("is-open")) { set(false); btn.focus(); } });
   document.addEventListener("click", (e) => { if (nav.classList.contains("is-open") && !e.target.closest(".hd")) set(false); });
-  window.matchMedia("(min-width: 1100px)").addEventListener("change", (m) => { if (m.matches) set(false); });
+  window.matchMedia("(min-width: 1300px)").addEventListener("change", (m) => { if (m.matches) set(false); });
 })();
 
 // анимированный логотип (видео клиента без звука) — первый экран и «О бренде»: бесконечный цикл, пока виден на экране;
@@ -119,7 +119,7 @@ document.querySelectorAll(".logo-anim").forEach((v) => {
 
   // что и как появляется: [селектор, тип]. Группы (data-stagger) — дети появляются по очереди
   const singles = [
-    ['.sec-head', 'up'], ['.about-logo', 'zoom'], ['.about > div:last-child', 'up'],
+    ['.sec-head', 'up'], ['.about-logo', 'zoom'], ['.prod-pic', 'left'], ['.prod-text', 'right'], ['.about > div:last-child', 'up'],
     ['.still-text', 'up'], ['.decl-pic', 'left'], ['.decl > div:last-child', 'right'],
     ['.ccard', 'zoom'], ['.pd-tabs', 'up'], ['.ft-in', 'up'], ['.ft-bot', 'fade'],
   ];

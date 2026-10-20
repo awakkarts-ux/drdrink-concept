@@ -97,7 +97,7 @@ a { color: inherit; }
 /* ---------- шапка: сплошная полоса во всю ширину, не плавающая; при скролле — компактная ---------- */
 .hd { position: sticky; top: 0; z-index: 50; background: var(--ink); color: var(--cream); border-bottom: 1px solid rgba(217,165,74,.35); transition: box-shadow var(--t); }
 .hd.is-scrolled { box-shadow: 0 8px 24px rgba(0,0,0,.25); }
-.hd-in { display: flex; align-items: center; gap: 40px; height: 80px; }
+.hd-in { display: flex; align-items: center; gap: 32px; height: 80px; }
 .hd-logo { position: relative; flex: none; width: 64px; height: 100%; }
 /* медальон целиком внутри полосы — ничего не свисает (клиент: «висящая шапка не нравится») */
 .hd-logo img { position: absolute; left: 0; top: 8px; width: 64px; height: 64px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); transition: transform var(--t); }
@@ -107,7 +107,7 @@ a { color: inherit; }
 .hd-logo:hover .hd-logo-anim { transform: scale(1.06); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .hd-nav { display: flex; gap: 4px; margin-left: auto; }
-.hd-nav a { padding: 10px 14px; border-radius: 10px; font-size: 16px; font-weight: var(--head-w); letter-spacing: .04em; text-decoration: none; color: rgba(253,248,230,.78); transition: color var(--t), background-color var(--t); }
+.hd-nav a { padding: 10px 10px; border-radius: 10px; font-size: 15px; font-weight: var(--head-w); letter-spacing: .04em; text-decoration: none; color: rgba(253,248,230,.78); transition: color var(--t), background-color var(--t); }
 .hd-nav a:hover { color: var(--cream); background: rgba(253,248,230,.08); }
 .hd-nav a.is-active { color: var(--gold-hi); }
 .hd .btn { height: 44px; padding: 0 20px; font-size: 15px; }
@@ -117,7 +117,8 @@ a { color: inherit; }
 .hd-burger span, .hd-burger span::before, .hd-burger span::after { content: ""; display: block; width: 20px; height: 2px; border-radius: 2px; background: currentColor; transition: transform var(--t), background-color var(--t); }
 .hd-burger span { position: relative; } .hd-burger span::before { position: absolute; top: -6px; } .hd-burger span::after { position: absolute; top: 6px; }
 .hd-burger[aria-expanded="true"] span { background: transparent; } .hd-burger[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); } .hd-burger[aria-expanded="true"] span::after { transform: translateY(-6px) rotate(-45deg); }
-@media (max-width: 1099px) {
+/* бургер включается раньше остального адаптива: 7 пунктов меню в Prosto One не помещаются уже на 1280 (с полосой прокрутки) */
+@media (max-width: 1299px) {
   .hd-in { gap: 0; height: 72px; }
   .hd-logo { width: 56px; }
   .hd-logo img, .hd-logo-anim { top: 8px; width: 56px; height: 56px; }
@@ -267,6 +268,17 @@ a { color: inherit; }
   .about-lead { font-size: 18px; }
   .facts div { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* ---------- производство (как на даблснейк.рф: фото 1.4fr + текст 1fr) ---------- */
+.prod { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+.prod-pic { margin: 0; overflow: hidden; border-radius: var(--r-pnl); }
+.prod-pic img { width: 100%; height: 100%; object-fit: cover; }
+.prod-text { display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 48px; border-radius: var(--r-pnl); background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+.prod-lead { margin: 0; font: var(--head-w) 34px/1.05 var(--f-head); text-transform: var(--head-tt); letter-spacing: var(--head-ls); }
+.prod-text p:not(.prod-lead) { margin: 0; font-size: 17px; color: var(--ink-2); }
+.prod-addr { font: var(--head-w) 14px/1.4 var(--f-head); text-transform: var(--head-tt); letter-spacing: .04em; color: var(--ink); }
+@media (max-width: 1099px) { .prod { grid-template-columns: 1fr; } .prod-pic img { aspect-ratio: 16 / 9; } .prod-text { padding: 32px; } }
+@media (max-width: 767px) { .prod-pic img { aspect-ratio: 4 / 3; } .prod-text { padding: 24px 20px; } .prod-lead { font-size: 26px; } .prod-text p:not(.prod-lead) { font-size: 16px; } }
 
 /* ---------- сертификат (как на даблснейк.рф) ---------- */
 .decl { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 64px; align-items: center; padding: 48px; border-radius: var(--r-pnl); background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
