@@ -17,6 +17,18 @@
   secs.forEach((s) => io.observe(s));
 })();
 
+// бургер (≤1099): меню открывается панелью под шапкой; Esc, клик по пункту и клик вне панели закрывают, фокус возвращается на кнопку
+(() => {
+  const btn = document.querySelector(".hd-burger"), nav = document.getElementById("hd-nav");
+  if (!btn || !nav) return;
+  const set = (open) => { nav.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", String(open)); btn.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню"); };
+  btn.addEventListener("click", () => set(!nav.classList.contains("is-open")));
+  nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("is-open")) { set(false); btn.focus(); } });
+  document.addEventListener("click", (e) => { if (nav.classList.contains("is-open") && !e.target.closest(".hd")) set(false); });
+  window.matchMedia("(min-width: 1100px)").addEventListener("change", (m) => { if (m.matches) set(false); });
+})();
+
 // анимированный логотип (видео клиента без звука) — первый экран и «О бренде»: бесконечный цикл, пока виден на экране;
 // кнопка паузы (WCAG 2.2.2); при «уменьшить движение» — первый кадр
 document.querySelectorAll(".logo-anim").forEach((v) => {
