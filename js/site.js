@@ -136,15 +136,20 @@ document.querySelectorAll(".logo-anim").forEach((v) => {
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (!e.isIntersecting) continue;
-      const el = e.target;
-      el.classList.add('in');
-      io.unobserve(el);
-      // после появления — вернуть элементу его собственные переходы (наведение и т. п.)
-      const d = parseInt(el.style.getPropertyValue('--d'), 10) || 0;
-      setTimeout(() => { el.removeAttribute('data-rv'); el.classList.remove('in'); el.style.removeProperty('--d'); }, 1800 + d);
+      io.unobserve(e.target);
+      // лента-свайп (телефон) — следим за самой лентой и показываем все карточки разом: те, что за краем, иначе ждали бы свайпа
+      const els = e.target.dataset.rv ? [e.target] : [...e.target.children];
+      els.forEach((el) => {
+        el.classList.add('in');
+        // после появления — вернуть элементу его собственные переходы (наведение и т. п.)
+        const d = parseInt(el.style.getPropertyValue('--d'), 10) || 0;
+        setTimeout(() => { el.removeAttribute('data-rv'); el.classList.remove('in'); el.style.removeProperty('--d'); }, 1800 + d);
+      });
     }
   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-  document.querySelectorAll('[data-rv]').forEach((el) => io.observe(el));
+  const isStrip = (el) => getComputedStyle(el).overflowX === 'auto';
+  document.querySelectorAll('[data-stagger]').forEach((g) => { if (isStrip(g)) { io.observe(g); [...g.children].forEach((c) => c.style.setProperty('--d', '0ms')); } });
+  document.querySelectorAll('[data-rv]').forEach((el) => { if (!isStrip(el.parentElement)) io.observe(el); });
 
   // первый экран и страница товара — сразу после загрузки
   setTimeout(() => root.classList.add('loaded'), 60);
