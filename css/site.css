@@ -52,7 +52,7 @@ a { color: inherit; }
 .sec { padding-block: 120px 0; }
 
 /* ---------- заголовки: один шрифт на всё отображаемое ---------- */
-.h1, .h2, .h3, .card-n, .pd-h1, .lbl, .btn, .hd-nav a, .ft-nav a { font-family: var(--f-head); text-transform: var(--head-tt); letter-spacing: var(--head-ls); }
+.h1, .h2, .h3, .card-n, .pd-h1, .lbl, .btn, .ft-nav a { font-family: var(--f-head); text-transform: var(--head-tt); letter-spacing: var(--head-ls); }
 .h1 { font-size: 80px; line-height: 1.02; font-weight: var(--head-w); margin: 0; }
 .h2 { font-size: 52px; line-height: 1.05; font-weight: var(--head-w); margin: 0; }
 .h3 { font-size: 26px; line-height: 1.15; font-weight: var(--head-w); margin: 0 0 20px; }
@@ -110,7 +110,7 @@ a { color: inherit; }
 .hd-logo:hover .hd-logo-anim { transform: scale(1.06); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .hd-nav { display: flex; gap: 4px; margin-left: auto; }
-.hd-nav a { white-space: nowrap; padding: 10px 10px; border-radius: 10px; font-size: 15px; font-weight: var(--head-w); letter-spacing: .04em; text-decoration: none; color: rgba(253,248,230,.78); transition: color var(--t), background-color var(--t); }
+.hd-nav a { white-space: nowrap; padding: 10px 10px; border-radius: 10px; font: 500 15px/1.2 var(--f-body); text-transform: uppercase; letter-spacing: .04em; text-decoration: none; color: rgba(253,248,230,.78); transition: color var(--t), background-color var(--t); }
 .hd-nav a:hover { color: var(--cream); background: rgba(253,248,230,.08); }
 .hd-nav a.is-active { color: var(--gold-hi); }
 /* 1300–1439: 7 пунктов меню впритык — сужаем поля ссылок, иначе «Связаться» упирается в край */
