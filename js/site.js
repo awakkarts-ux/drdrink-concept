@@ -17,24 +17,43 @@
   secs.forEach((s) => io.observe(s));
 })();
 
-// анимация лого (видео клиента без звука) — бесконечный цикл; кнопка паузы (WCAG 2.2.2); при «уменьшить движение» — стоит на первом кадре
+// анимированный логотип (видео клиента без звука) — первый экран и «О бренде»: бесконечный цикл, пока виден на экране;
+// кнопка паузы (WCAG 2.2.2); при «уменьшить движение» — первый кадр
+document.querySelectorAll(".logo-anim").forEach((v) => {
+  const btn = v.parentElement.querySelector(".logo-toggle") || v.closest(".hero-logo-wrap, .about-logo-wrap")?.querySelector(".logo-toggle");
+  let userPaused = window.matchMedia("(prefers-reduced-motion: reduce)").matches, onScreen = true;
+  const setBtn = () => { if (!btn) return; btn.setAttribute("aria-pressed", String(userPaused)); btn.setAttribute("aria-label", userPaused ? "Запустить анимацию логотипа" : "Остановить анимацию логотипа"); };
+  const sync = () => { if (userPaused || document.hidden || !onScreen) v.pause(); else v.play().catch(() => {}); };
+  v.loop = true; v.muted = true; v.removeAttribute("autoplay");
+  setBtn();
+  if ("IntersectionObserver" in window) new IntersectionObserver((es) => { onScreen = es[0].isIntersecting; sync(); }, { threshold: 0.2 }).observe(v);
+  if (v.readyState >= 2) sync(); else v.addEventListener("canplay", sync, { once: true });
+  document.addEventListener("visibilitychange", sync);
+  if (btn) btn.addEventListener("click", () => { userPaused = !userPaused; setBtn(); sync(); });
+});
+
+// «разрыв буквы O» логотипа Double Distill в баннере «Другие бренды» — перенос анимации с сайта Double Distill (mcsnmapk.bget.ru):
+// разрыв обегает букву за 4 с по контуру, буква слегка пульсирует. Один раз, когда баннер виден, и при наведении/фокусе
 (() => {
-  const v = document.querySelector(".logo-anim");
-  if (!v) return;
-  const btn = document.querySelector(".logo-toggle");
-  const setBtn = (paused) => {
-    if (!btn) return;
-    btn.setAttribute("aria-pressed", String(paused));
-    btn.setAttribute("aria-label", paused ? "Запустить анимацию логотипа" : "Остановить анимацию логотипа");
+  const logo = document.querySelector(".pb-dd-logo");
+  if (!logo) return;
+  const card = logo.closest(".pb-card"), reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const letter = logo.querySelector("[data-letter=\"O\"]"), rest = logo.querySelector("[data-rest-letter]"), active = logo.querySelector("[data-active-letter]"),
+    gap = logo.querySelector("[data-moving-gap]"), route = logo.querySelector("path[id$=\"gap-route\"]");
+  const length = route.getTotalLength(); let busy = false;
+  const position = (t) => { const s = t * length, p = route.getPointAtLength(s), a = route.getPointAtLength((s - 0.08 + length) % length), b = route.getPointAtLength((s + 0.08) % length),
+    dx = b.x - a.x, dy = b.y - a.y, n = Math.hypot(dx, dy) || 1, nx = -dy / n * 12, ny = dx / n * 12; gap.setAttribute("d", `M${p.x - nx} ${p.y - ny} L${p.x + nx} ${p.y + ny}`); };
+  const spin = () => {
+    if (busy || reduced.matches || document.hidden) return; busy = true;
+    position(0); rest.style.display = "none"; active.style.display = "";
+    const start = performance.now();
+    const frame = (now) => { const t = Math.min(1, (now - start) / 4000); position(t * t * (3 - 2 * t)); letter.style.transform = `scale(${1 + 0.12 * Math.sin(Math.PI * t)})`;
+      if (t < 1) requestAnimationFrame(frame); else { active.style.display = "none"; rest.style.display = ""; letter.style.transform = ""; busy = false; } };
+    requestAnimationFrame(frame);
   };
-  let userPaused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const play = () => { if (!userPaused && !document.hidden) v.play().catch(() => {}); };
-  v.loop = true;
-  if (userPaused) { v.removeAttribute("autoplay"); v.pause(); }
-  setBtn(userPaused);
-  if (v.readyState >= 2) play(); else v.addEventListener("canplay", play, { once: true });
-  document.addEventListener("visibilitychange", play);
-  if (btn) btn.addEventListener("click", () => { userPaused = !userPaused; if (userPaused) v.pause(); else play(); setBtn(userPaused); });
+  if ("IntersectionObserver" in window) { const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { io.disconnect(); setTimeout(spin, 650); } }, { threshold: 0.5 }); io.observe(card); }
+  card.addEventListener("pointerenter", (e) => { if (e.pointerType !== "touch") spin(); });
+  card.addEventListener("focus", spin);
 })();
 
 // мини-анимация лого в шапке (механика header-logo-wave.js с даблснейк.рф): один проход через 0,65 с после загрузки

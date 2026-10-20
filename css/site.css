@@ -17,9 +17,10 @@
   --fruit: #730c44;          /* фон пачки Fruit */
   --coral: #cd5e50;
 
-  --f-head: "Oswald", "Arial Narrow", sans-serif;
-  --f-body: "Golos Text", system-ui, sans-serif;
-  --head-w: 600;             /* вес заголовков — подстраивается под шрифт */
+  /* шрифты выбраны клиентом 20.10: Prosto One (как «ТУРБО ДРОЖЖИ» на пачке) + Rubik */
+  --f-head: "Prosto One", "Arial Narrow", sans-serif;
+  --f-body: "Rubik", system-ui, sans-serif;
+  --head-w: 400;             /* у Prosto One одно начертание */
   --head-ls: 0;
   --head-tt: uppercase;
 
@@ -80,6 +81,11 @@ a { color: inherit; }
 .pat-rum   { --pk: var(--rum); background-color: var(--pk);   --pat-l: url(../img/pat-rum-l.webp);   --pat-r: url(../img/pat-rum-r.webp); }
 .pat-vodka { --pk: var(--vodka); background-color: var(--pk); --pat-l: url(../img/pat-vodka-l.webp); --pat-r: url(../img/pat-vodka-r.webp); }
 .pat-fruit { --pk: var(--fruit); background-color: var(--pk); --pat-l: url(../img/pat-fruit-l.webp); --pat-r: url(../img/pat-fruit-r.webp); }
+/* равномерный фон секций (клиент 20.10): бесшовная плитка-рассыпка из мотивов пачки, а не узор только по краям */
+.pat-tile::before { background: var(--tile) 0 0 / var(--tile-w, 600px) auto repeat; }
+.pat-rum.pat-tile { --tile: url(../img/tile-rum.webp); }
+.pat-vodka.pat-tile { --tile: url(../img/tile-vodka.webp); }
+.pat-fruit.pat-tile { --tile: url(../img/tile-fruit.webp); }
 .pat-whiskey { --pk: #2a1d14; background: #2a1d14 url(../img/wood-tile.webp) center top / 528px auto repeat; }
 .pat-whiskey::before { display: none; }
 
@@ -102,11 +108,11 @@ a { color: inherit; }
 .hd .btn { height: 44px; padding: 0 20px; font-size: 15px; }
 
 /* ---------- первый экран (фон Rum) ---------- */
-.hero { color: var(--cream); padding: 112px 0 0; overflow: hidden; --pat-o: .5; }
-.hero-in { display: grid; grid-template-columns: 1fr 360px; align-items: center; gap: 48px; }
+.hero { color: var(--cream); padding: 112px 0 0; overflow: hidden; --pat-o: .32; }
+.hero-in { display: grid; grid-template-columns: 1fr 460px; align-items: center; gap: 48px; }
 .hero-sub { font-size: 20px; color: rgba(253,248,230,.8); max-width: 600px; margin: 28px 0 0; }
 .hero-cta { display: flex; gap: 16px; margin-top: 40px; }
-.hero-logo-wrap { position: relative; justify-self: end; width: 320px; }
+.hero-logo-wrap { position: relative; justify-self: end; width: 460px; margin-top: -4.4%; }
 /* пауза бесконечной анимации лого (WCAG 2.2.2): видна при наведении на лого и при фокусе */
 .logo-toggle { position: absolute; right: 18px; bottom: 22px; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--ink); color: var(--cream); box-shadow: 0 0 0 2px rgba(253,248,230,.35); cursor: pointer; opacity: 0; transition: opacity var(--t), background-color var(--t); }
 .hero-logo-wrap:hover .logo-toggle, .logo-toggle:focus-visible, .logo-toggle[aria-pressed="true"] { opacity: 1; }
@@ -115,7 +121,7 @@ a { color: inherit; }
 .logo-toggle .i-play { fill: currentColor; stroke: none; }
 .logo-toggle[aria-pressed="true"] .i-pause, .logo-toggle[aria-pressed="false"] .i-play { display: none; }
 @media (hover: none) { .logo-toggle { opacity: 1; } }
-.hero-logo { display: block; width: 320px; border-radius: 50%; transition: transform var(--t); }
+.hero-logo { display: block; width: 100%; border-radius: 50%; transition: transform var(--t); }
 .hero-logo img { width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,.45)); }
 /* видео клиента: белый кадр, круг лого — центр 49.9% / 52.2%, радиус 46.6% */
 .logo-anim { display: block; width: 100%; height: auto; aspect-ratio: 1; clip-path: circle(46.4% at 49.9% 52.2%); filter: drop-shadow(0 20px 40px rgba(0,0,0,.45)); }
@@ -124,16 +130,16 @@ a { color: inherit; }
 .hero-row li { position: relative; }
 .hero-row a { position: relative; display: block; height: 128px; margin-top: 96px; border-radius: 16px 16px 0 0; background-color: var(--pk); color: var(--cream); text-decoration: none; isolation: isolate; overflow: visible; transition: transform var(--t); }
 .hero-row li.lt a { color: var(--ink); }
-.hero-row img { position: absolute; left: 50%; bottom: 36px; width: 100%; max-width: none; transform: translateX(-50%) rotate(-4deg); filter: drop-shadow(0 12px 16px rgba(0,0,0,.4)); transition: transform var(--t); }
+.hero-row img { position: absolute; left: 50%; bottom: 36px; width: auto; height: 172px; max-width: none; transform: translateX(-50%) rotate(-4deg); filter: drop-shadow(0 12px 16px rgba(0,0,0,.4)); transition: transform var(--t); }
 .hero-row li:nth-child(even) img { transform: translateX(-50%) rotate(4deg); }
 .hero-row b { position: absolute; left: 12px; bottom: 10px; font: var(--head-w) 17px/1 var(--f-head); text-transform: var(--head-tt); letter-spacing: var(--head-ls); }
 .hero-row a:hover img { transform: translateX(-50%) translateY(-12px) rotate(0); }
 
 /* ---------- линейка ---------- */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 112px 24px; padding-top: 136px; }
-.card { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; min-height: 300px; padding: 168px 28px 28px; border-radius: var(--r-pnl); background-color: var(--pk); color: var(--cream); --pat-o: .55; }
+.card { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; min-height: 330px; padding: 168px 28px 28px; border-radius: var(--r-pnl); background-color: var(--pk); color: var(--cream); --pat-o: .55; }
 .card.lt { color: var(--ink); }
-.card img { position: absolute; left: 50%; top: -120px; width: 216px; transform: translateX(-50%) rotate(-3deg); filter: drop-shadow(0 18px 20px rgba(23,20,15,.35)); transition: transform var(--t); }
+.card img { position: absolute; left: 50%; top: -112px; width: auto; height: 256px; max-width: none; transform: translateX(-50%) rotate(-3deg); filter: drop-shadow(0 18px 20px rgba(23,20,15,.35)); transition: transform var(--t); }
 .card:nth-child(even) img { transform: translateX(-50%) rotate(3deg); }
 .card:hover img { transform: translateX(-50%) translateY(-10px) rotate(0); }
 .card-k { font-size: 15px; }
@@ -149,12 +155,14 @@ a { color: inherit; }
 
 /* ---------- преимущества (фон Vodka) ---------- */
 .band { margin: 120px 12px 0; padding-block: 112px; border-radius: var(--r-pnl); }
-.benefits { --pat-o: .75; color: var(--ink); }
+.benefits { --pat-o: .55; color: var(--ink); }
 .benefits .lead { color: var(--vodka-deep); }
 .ben-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 1040px; margin-inline: auto; }
-.ben { display: flex; flex-direction: column; gap: 10px; min-height: 236px; padding: 28px; border-radius: var(--r-card); background: var(--cream); box-shadow: 0 1px 0 rgba(15,63,82,.08); }
-.ben-n { font: var(--head-w) 15px/1 var(--f-head); color: var(--ink-3); letter-spacing: .06em; }
-.ben b { margin-top: auto; font: var(--head-w) 24px/1.15 var(--f-head); text-transform: var(--head-tt); letter-spacing: var(--head-ls); }
+.ben { display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: var(--r-card); background: var(--cream); box-shadow: 0 1px 0 rgba(15,63,82,.08); transition: transform .35s var(--ease-out, ease), box-shadow .35s ease; }
+.ben:hover { transform: scale(1.035); box-shadow: 0 18px 40px rgba(15,63,82,.22); z-index: 1; }
+.ben-n { display: block; font: var(--head-w) 34px/1 var(--f-head); color: var(--vodka-deep); transform-origin: left center; transition: transform .35s var(--ease-out, ease), color .35s ease; }
+.ben:hover .ben-n { transform: scale(1.35); color: var(--ink); }
+.ben b { min-height: 2.3em; font: var(--head-w) 22px/1.15 var(--f-head); text-transform: var(--head-tt); letter-spacing: var(--head-ls); }
 .ben span:last-child { color: var(--ink-2); font-size: 16px; }
 .benefits .sec-head { text-align: center; }
 .benefits .lead { margin-inline: auto; }
@@ -173,6 +181,9 @@ a { color: inherit; }
 /* ---------- о бренде ---------- */
 .about { display: grid; grid-template-columns: 5fr 7fr; gap: 96px; align-items: center; }
 .about-logo { display: block; width: 100%; max-width: 420px; justify-self: center; transition: transform var(--t); }
+.about-logo-wrap { position: relative; justify-self: center; width: 100%; max-width: 420px; }
+.about-logo-wrap .logo-anim { filter: drop-shadow(0 16px 32px rgba(23,20,15,.25)); }
+.about-logo-wrap:hover .logo-toggle { opacity: 1; }
 .about-logo:hover { transform: scale(1.04); }
 .about-lead { font-size: 22px; line-height: 1.45; margin: 24px 0 0; color: var(--ink-2); }
 .facts { display: grid; margin: 32px 0 0; border-top: 1px solid var(--line); }
@@ -203,7 +214,7 @@ a { color: inherit; }
 .faq details ol { padding-left: 44px; }
 
 /* ---------- связаться (фон Fruit), почта вместо формы — как на даблснейк.рф ---------- */
-.contact { --pat-o: .8; display: grid; place-items: center; min-height: 600px; }
+.contact { --pat-o: .5; display: grid; place-items: center; min-height: 600px; }
 .ccard { width: min(560px, 100%); padding: 48px; border-radius: var(--r-pnl); background: var(--cream); color: var(--ink); text-align: center; box-shadow: 0 24px 60px rgba(40,4,24,.35); }
 .ccard .h2 { font-size: 44px; }
 .ccard-sub { margin: 16px 0 0; color: var(--ink-2); }
@@ -234,6 +245,9 @@ a { color: inherit; }
 .pb-text { position: absolute; z-index: 3; left: 28px; top: 32px; max-width: 40%; }
 .pb-logo { display: block; height: auto; }
 .pb-logo-dd { width: min(100%, 260px); }
+.pb-dd-logo { overflow: visible; }
+.pb-dd-logo [data-letter="O"] { transform-box: fill-box; transform-origin: center; }
+.pb-dd-logo [data-letter="O"] > path { fill: #fff9f3; }
 .pb-logo-ds { width: min(100%, 230px); }
 .pb-wave { overflow: visible; }
 /* волна букв (header-logo-wave.js с даблснейк.рф, переписано на CSS): буква i стартует через 0,2 + 0,43·i с, длится 1,6 с */
@@ -374,16 +388,6 @@ a { color: inherit; }
 .doc figcaption { display: flex; flex-direction: column; gap: 8px; color: var(--ink-2); }
 .doc figcaption b { font: var(--head-w) 24px/1.15 var(--f-head); text-transform: var(--head-tt); color: var(--ink); }
 
-/* ---------- панель выбора шрифтов (только концепт) ---------- */
-.fontpick { position: fixed; left: 16px; bottom: 16px; z-index: 90; width: 280px; padding: 16px; border-radius: 16px; background: #fff; color: #17140f; box-shadow: 0 12px 40px rgba(0,0,0,.25); font: 400 14px/1.4 system-ui, sans-serif; }
-.fontpick[data-min="1"] .fp-body { display: none; }
-.fp-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-.fp-top b { font-size: 14px; }
-.fp-top button { border: 0; background: #f1ede2; border-radius: 8px; padding: 6px 10px; font: inherit; cursor: pointer; }
-.fp-body { display: grid; gap: 10px; margin-top: 12px; }
-.fp-body label { display: grid; gap: 4px; font-size: 12px; color: #6b6355; }
-.fp-body select { height: 36px; border: 1px solid #ddd5c2; border-radius: 8px; padding: 0 8px; font: inherit; color: #17140f; background: #fffcf2; }
-.fp-note { font-size: 12px; color: #6b6355; margin: 0; }
 
 /* ---------- анимации появления (только при html.anim-on; без JS и при «уменьшить движение» всё видно сразу) ----------
    механика — как Text Reveal / fade-up (Unlumen UI, Motion Primitives), переписано на CSS: только transform и opacity */
