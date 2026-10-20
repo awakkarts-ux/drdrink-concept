@@ -30,7 +30,7 @@
 })();
 
 // анимированный логотип (видео клиента без звука) — первый экран и «О бренде»: бесконечный цикл, пока виден на экране;
-// кнопка паузы (WCAG 2.2.2); при «уменьшить движение» — первый кадр
+// без кнопки паузы (клиент 20.10 попросил убрать); при «уменьшить движение» — первый кадр
 document.querySelectorAll(".logo-anim").forEach((v) => {
   const btn = v.parentElement.querySelector(".logo-toggle") || v.closest(".hero-logo-wrap, .about-logo-wrap")?.querySelector(".logo-toggle");
   let userPaused = window.matchMedia("(prefers-reduced-motion: reduce)").matches, onScreen = true;
