@@ -296,8 +296,8 @@ a { color: inherit; }
 @media (max-width: 767px) { .faq { grid-template-columns: 1fr; } .faq summary { padding: 20px; font-size: 17px; } .faq details p, .faq details ol { padding: 0 20px 20px; } .faq details ol { padding-left: 40px; } }
 
 /* ---------- связаться (фон Fruit), почта вместо формы — как на даблснейк.рф ---------- */
-.contact { --pat-o: .5; display: grid; place-items: center; min-height: 600px; }
-.ccard { width: min(560px, 100%); padding: 48px; border-radius: var(--r-pnl); background: var(--cream); color: var(--ink); text-align: center; box-shadow: 0 24px 60px rgba(40,4,24,.35); }
+.contact { --pat-o: .5; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; min-height: 600px; }
+.ccard { width: min(560px, 100%); min-width: 0; padding: 48px; border-radius: var(--r-pnl); background: var(--cream); color: var(--ink); text-align: center; box-shadow: 0 24px 60px rgba(40,4,24,.35); }
 .ccard .h2 { font-size: 44px; }
 .ccard-sub { margin: 16px 0 0; color: var(--ink-2); }
 .cmail { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
@@ -306,7 +306,7 @@ a { color: inherit; }
 .cmail .btn { width: 100%; margin-top: 24px; }
 .cmail-note { margin: 16px 0 0; font-size: 14px; color: var(--ink-3); }
 
-@media (max-width: 767px) { .contact { min-height: 0; padding-inline: 16px; } .ccard { padding: 32px 20px; } .ccard .h2 { font-size: 30px; } .cmail-addr { display: inline-flex; align-items: center; min-height: 44px; font-size: 22px; overflow-wrap: anywhere; } }
+@media (max-width: 767px) { .contact { min-height: 0; padding-inline: 12px; } .ccard { padding: 32px 16px; } .ccard .h2 { font-size: 30px; } .cmail .btn { white-space: normal; height: auto; min-height: 56px; padding: 12px 16px; } .cmail-addr { max-width: 100%; display: inline-flex; align-items: center; min-height: 44px; font-size: 22px; overflow-wrap: anywhere; } }
 
 /* ---------- другие бренды — геометрия и анимация блока «Наши бренды» с даблснейк.рф (замер 1440) ---------- */
 .pb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -444,7 +444,7 @@ a { color: inherit; }
   .ft { margin: 8px; padding-block: 40px 20px; border-radius: 20px; }
   .ft-l { flex-direction: column; gap: 28px; }
   .ft-logo img { width: 72px; height: 72px; }
-  .ft-cols { gap: 24px 40px; }
+  .ft-cols { grid-template-columns: 1fr; gap: 28px; } /* «Бренды» — под навигацией сайта */
   .ft-mail { font-size: 22px; overflow-wrap: anywhere; }
   .ft-reqs div { grid-template-columns: 1fr; gap: 2px; }
   .ft-bot { margin-top: 32px; }
