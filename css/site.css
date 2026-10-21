@@ -318,13 +318,13 @@ a { color: inherit; }
 .ccard { width: min(560px, 100%); min-width: 0; padding: 48px; border-radius: var(--r-pnl); background: var(--cream); color: var(--ink); text-align: center; box-shadow: 0 24px 60px rgba(40,4,24,.35); }
 .ccard .h2 { font-size: 44px; }
 .ccard-sub { margin: 16px 0 0; color: var(--ink-2); }
-.cmail { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
-.cmail-addr { display: inline-block; margin-top: 8px; font: var(--head-w) 30px/1.2 var(--f-head); text-decoration: none; letter-spacing: var(--head-ls); }
+.cmail { container-type: inline-size; min-width: 0; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
+.cmail-addr { display: inline-block; max-width: 100%; white-space: nowrap; margin-top: 8px; font: var(--head-w) min(22px, 5.5vw)/1.2 var(--f-head); font-size: min(30px, 8cqw); text-decoration: none; letter-spacing: var(--head-ls); }
 .cmail-addr:hover { color: var(--fruit); }
 .cmail .btn { width: 100%; margin-top: 24px; }
 .cmail-note { margin: 16px 0 0; font-size: 14px; color: var(--ink-3); }
 
-@media (max-width: 767px) { .contact { min-height: 0; padding-inline: 12px; } .ccard { padding: 32px 16px; } .ccard .h2 { font-size: 30px; } .cmail .btn { white-space: normal; height: auto; min-height: 56px; padding: 12px 16px; } .cmail-addr { max-width: 100%; display: inline-flex; align-items: center; min-height: 44px; font-size: 22px; overflow-wrap: anywhere; } }
+@media (max-width: 767px) { .contact { min-height: 0; padding-inline: 12px; } .ccard { padding: 32px 16px; } .ccard .h2 { font-size: 30px; } .cmail .btn { white-space: normal; height: auto; min-height: 56px; padding: 12px 16px; } .cmail-addr { max-width: 100%; display: inline-flex; align-items: center; min-height: 44px; font-size: min(22px, 8cqw); } }
 
 /* ---------- другие бренды — геометрия и анимация блока «Наши бренды» с даблснейк.рф (замер 1440) ---------- */
 .pb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -411,9 +411,10 @@ a { color: inherit; }
 .dcard { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 64px 56px; border-radius: var(--r-pnl); background: var(--ink); color: var(--cream); }
 .dcard-title { margin: 0; font: var(--head-w) 72px/.9 var(--f-head); text-transform: var(--head-tt); letter-spacing: var(--head-ls); }
 .dcard-sub { max-width: 420px; margin: 24px 0 0; font-size: 18px; font-weight: 500; line-height: 1.4; }
-.dmail { display: flex; flex-direction: column; align-items: flex-start; }
+.dmail { container-type: inline-size; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .dmail-label { margin-bottom: 12px; font-size: 12px; font-weight: 500; line-height: 1; color: rgba(253,248,230,.55); }
-.dmail-addr { font: var(--head-w) 42px/1.05 var(--f-head); text-decoration: none; letter-spacing: var(--head-ls); transition: color var(--t); max-width: 100%; overflow-wrap: anywhere; }
+/* адрес почты — всегда одной строкой (как на даблснейк.рф): кегль от ширины колонки-контейнера; без container queries — запасной от ширины окна */
+.dmail-addr { max-width: 100%; white-space: nowrap; font: var(--head-w) min(26px, 5.5vw)/1.05 var(--f-head); font-size: min(42px, 8cqw); text-decoration: none; letter-spacing: var(--head-ls); transition: color var(--t); }
 .dmail-addr:hover { color: var(--gold-hi); }
 .dmail-text { margin: 20px 0 8px; font-size: 18px; font-weight: 500; }
 .dmail-btn { width: 100%; margin-top: 12px; }
@@ -421,6 +422,8 @@ a { color: inherit; }
 .cdlg-s { width: min(560px, calc(100% - 32px)); }
 .dcard-s { grid-template-columns: 1fr; padding: 64px 48px; }
 .dcard-s .dcard-title { font-size: 64px; }
+/* планшет: заголовок 72 px не оставляет места колонке с почтой — окно в одну колонку */
+@media (max-width: 1099px) { .dcard { grid-template-columns: 1fr; gap: 32px; } .dcard-title { font-size: 60px; } }
 
 @media (max-width: 767px) {
   .cdlg { width: calc(100% - 16px); max-height: calc(100% - 16px); overflow: auto; }
@@ -429,7 +432,7 @@ a { color: inherit; }
   .dcard-title, .dcard-s .dcard-title { font-size: 40px; }
   .dcard-s { padding: 56px 20px 40px; }
   .dcard-sub, .dmail-text { font-size: 16px; }
-  .dmail-addr { font-size: 26px; }
+  .dmail-addr { font-size: min(26px, 8cqw); }
 }
 
 /* ---------- подвал: навигация по сайту и брендам, реквизиты, 18+ (как на даблснейк.рф) ---------- */
@@ -448,8 +451,9 @@ a { color: inherit; }
 .ft-off { color: rgba(253,248,230,.4); }
 .ft-btnlink { padding: 5px 0; border: 0; background: none; text-align: left; cursor: pointer; font: var(--head-w) 16px/1.2 var(--f-head); text-transform: var(--head-tt); letter-spacing: .04em; color: rgba(253,248,230,.85); transition: color var(--t); }
 .ft-btnlink:hover { color: var(--gold-hi); }
+.ft-r { container-type: inline-size; min-width: 0; }
 .ft-r .ft-label { margin-bottom: 12px; }
-.ft-mail { font: var(--head-w) 26px/1.1 var(--f-head); color: var(--cream); text-underline-offset: 6px; }
+.ft-mail { white-space: nowrap; font: var(--head-w) min(22px, 5.5vw)/1.1 var(--f-head); font-size: min(26px, 8cqw); color: var(--cream); text-underline-offset: 6px; }
 .ft-mail:hover { color: var(--gold-hi); }
 .ft-reqs { display: grid; gap: 10px; margin: 28px 0 0; }
 .ft-reqs div { display: grid; grid-template-columns: 104px 1fr; gap: 16px; font-size: 14px; }
@@ -464,7 +468,7 @@ a { color: inherit; }
   .ft-l { flex-direction: column; gap: 28px; }
   .ft-logo img { width: 72px; height: 72px; }
   .ft-cols { grid-template-columns: 1fr; gap: 28px; } /* «Бренды» — под навигацией сайта */
-  .ft-mail { font-size: 22px; overflow-wrap: anywhere; }
+  .ft-mail { font-size: min(22px, 8cqw); }
   .ft-reqs div { grid-template-columns: 1fr; gap: 2px; }
   .ft-bot { margin-top: 32px; }
 }
